@@ -1,0 +1,2 @@
+var SIDEBAR_SIZE = 70;
+export  { SIDEBAR_SIZE }
