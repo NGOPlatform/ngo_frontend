@@ -1,115 +1,150 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
-import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
-import PendingActionsOutlinedIcon from '@mui/icons-material/PendingActionsOutlined';
-import {SIDEBAR_SIZE} from './../Globals';
-const drawerWidth = SIDEBAR_SIZE;
+// import CssBaseline from '@mui/material/CssBaseline';
+// import Divider from '@mui/material/Divider';
+// import Drawer from '@mui/material/Drawer';
+// import List from '@mui/material/List';
+// import ListItem from '@mui/material/ListItem';
+// import ListItemButton from '@mui/material/ListItemButton';
+// import ListItemIcon from '@mui/material/ListItemIcon';
+// import ListItemText from '@mui/material/ListItemText';
+// import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
+// import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+// import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
+// import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+// import PendingActionsOutlinedIcon from '@mui/icons-material/PendingActionsOutlined';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import Menu from '@mui/material/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
+import Container from '@mui/material/Container';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
+import MenuItem from '@mui/material/MenuItem';
+import logo from '../fox.png';
+import ProfileMenu from './ProfileMenu';
+import AuthenticationGroup from './AuthenticationGroup'
+import {Colors} from '../Globals'
 
-function Sidebar(props) {
-  const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+const pages = ['Harta', 'salvari', 'subcriptii', 'inbox'];
+const navBarStyle= {height: 'fit-content',
+backgroundColor: Colors.dark};
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
+function ResponsiveAppBar() {
+  const [auth, setAuth] = React.useState(false);
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
   };
 
-  const drawer = (
-    <div>
-      <List>
-        {/* {['map', 'save', 'subscriptions', 'notifications'].map((text, index) => ( */}
-        {['', '', '', ''].map((text, index) => (
 
-          <ListItem key={text} disablePadding >
-            <ListItemButton>
-              <ListItemIcon>
-                {index === 0 && <MapOutlinedIcon />}
-                {index === 1 && <FavoriteBorderOutlinedIcon />}
-                {index === 2 && <NotificationsNoneOutlinedIcon />}
-                {index === 3 && <PendingActionsOutlinedIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {/* {['Settings'].map((text, index) => ( */}
-        {[''].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index === 0 && <SettingsOutlinedIcon /> }
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </div>
-  );
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
 
-  const container = window !== undefined ? () => window().document.body : undefined;
+
 
   return (
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      <AppBar
-        position="fixed"
-        sx={{
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-          ml: { sm: `${drawerWidth}px` },
-        }}
-      >
-      
-      </AppBar>
-      <Box
-        component="nav"
-        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-        aria-label="mailbox folders"
-      >
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-        <Drawer
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-          sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-          }}
-        >
-          {drawer}
-        </Drawer>
-        <Drawer
-          variant="permanent"
-          sx={{
-            display: { xs: 'none', sm: 'block' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-          }}
-          open
-        >
-          {drawer}
-        </Drawer>
-      </Box>
-    </Box>
+    <AppBar position="static" style={navBarStyle}>
+      <Container maxWidth="xxl">
+        <Toolbar disableGutters>
+        <IconButton sx={{ p: 0 , display: { xs: 'none', md: 'flex' }, mr: 1}}>
+                <Avatar alt="foxy" src={logo} />
+            </IconButton>
+          <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="/"
+            sx={{
+              mr: 2,
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+            {/* Foxy */}
+          </Typography>
+
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="inherit"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorElNav}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'left',
+              }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{
+                display: { xs: 'block', md: 'none' },
+              }}
+            >
+              {pages.map((page) => (
+                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{page}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
+          <IconButton sx={{ p: 0 , display: { xs: 'flex', md: 'none' }, mr: 1}}>
+                <Avatar alt="foxy" src={logo} />
+            </IconButton>
+          <Typography
+            variant="h5"
+            noWrap
+            component="a"
+            href=""
+            sx={{
+              mr: 2,
+              display: { xs: 'flex', md: 'none' },
+              flexGrow: 1,
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+            {/* Foxy */}
+          </Typography>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            {pages.map((page) => (
+              <Button
+                key={page}
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                {page}
+              </Button>
+            ))}
+          </Box>
+              {auth ? <ProfileMenu/> : <AuthenticationGroup/>}
+        </Toolbar>
+      </Container>
+    </AppBar>
   );
 }
-
-
-export default Sidebar;
+export default ResponsiveAppBar;
