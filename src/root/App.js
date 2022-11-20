@@ -3,14 +3,16 @@ import { Box } from '@mui/system';
 import './App.css';
 import Navbar from '../navbar/Navbar';
 import Main from './Main';
-import Footer from './Footer'
+import Footer from './Footer';
+import Map from '../Map/Map';
 function App() {
   return (
-    <Box className="App">
-      <Navbar/>
-      <Main/>
-      <Footer/>
-    </Box>
+    // <Box className="App">
+    //   <Navbar/>
+    //   <Main/>
+    //   <Footer/>
+    // </Box>
+    <Map/>
   );
 }
 
