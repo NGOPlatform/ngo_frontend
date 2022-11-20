@@ -1,19 +1,6 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-// import CssBaseline from '@mui/material/CssBaseline';
-// import Divider from '@mui/material/Divider';
-// import Drawer from '@mui/material/Drawer';
-// import List from '@mui/material/List';
-// import ListItem from '@mui/material/ListItem';
-// import ListItemButton from '@mui/material/ListItemButton';
-// import ListItemIcon from '@mui/material/ListItemIcon';
-// import ListItemText from '@mui/material/ListItemText';
-// import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
-// import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-// import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
-// import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
-// import PendingActionsOutlinedIcon from '@mui/icons-material/PendingActionsOutlined';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -22,7 +9,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import logo from '../fox.png';
 import ProfileMenu from './ProfileMenu';
@@ -34,7 +20,7 @@ const navBarStyle= {height: 'fit-content',
 backgroundColor: Colors.dark};
 
 function ResponsiveAppBar() {
-  const [auth, setAuth] = React.useState(false);
+  const [auth, setAuth] = React.useState(true);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {

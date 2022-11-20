@@ -1,6 +1,6 @@
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import {Colors} from '../Globals'
+import {Colors} from '../Globals';
 
 const ButtonStyle={
     'color':Colors.white,

@@ -1,14 +1,15 @@
 // import logo from './logo.svg';
 import { Box } from '@mui/system';
 import './App.css';
-import Sidebar from './navbar/Sidebar';
-import SearchArea from './Search/SearchArea';
+import Navbar from '../navbar/Navbar';
+import Main from './Main';
+import Footer from './Footer'
 function App() {
   return (
     <Box className="App">
-      <Sidebar/>
-      <SearchArea/>
-      {/* <Map/> */}
+      <Navbar/>
+      <Main/>
+      <Footer/>
     </Box>
   );
 }
