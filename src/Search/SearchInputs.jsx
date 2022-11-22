@@ -1,7 +1,7 @@
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import { grid } from '@mui/system';
+
 const SearchInputs = () => {
     return (<Box
         component="form"
