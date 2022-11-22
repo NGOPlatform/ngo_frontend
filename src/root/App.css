@@ -9,3 +9,15 @@
 body{
   margin:0;
 }
+
+a:link {
+  text-decoration: inherit;
+  color: inherit;
+  /* cursor: auto; */
+}
+
+a:visited {
+  text-decoration: inherit;
+  color: inherit;
+  /* cursor: auto; */
+}

@@ -2,7 +2,7 @@ import { Colors } from '../Globals';
 import Grid from '@mui/material/Grid';
 import { Typography } from '@mui/material';
 import SearchArea from '../Search/SearchArea';
-const Main = () => {
+const Home = () => {
     return (
         <Grid container sx={{'background-color': Colors['gray-100'] }}>
          
@@ -16,4 +16,4 @@ const Main = () => {
     );
 }
 
-export default Main;
+export default Home;

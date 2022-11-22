@@ -13,14 +13,20 @@ import MenuItem from '@mui/material/MenuItem';
 import logo from '../fox.png';
 import ProfileMenu from './ProfileMenu';
 import AuthenticationGroup from './AuthenticationGroup'
-import {Colors} from '../Globals'
+import { Colors } from '../Globals'
+import { Link } from 'react-router-dom';
 
-const pages = ['Harta', 'salvari', 'subcriptii', 'inbox'];
-const navBarStyle= {height: 'fit-content',
-backgroundColor: Colors.dark};
+const pages = [{ label: 'Harta', path: '/' },
+{ label: 'salvari', path: '/saved' },
+{ label: 'subcriptii', path: '/subs' },
+{ label: 'inbox', path: '/inbox' }];
+const navBarStyle = {
+  height: 'fit-content',
+  backgroundColor: Colors.dark
+};
 
 function ResponsiveAppBar() {
-  const [auth, setAuth] = React.useState(true);
+  const [auth, setAuth] = React.useState(false);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -33,14 +39,13 @@ function ResponsiveAppBar() {
   };
 
 
-
   return (
     <AppBar position="static" style={navBarStyle}>
       <Container maxWidth="xxl">
         <Toolbar disableGutters>
-        <IconButton sx={{ p: 0 , display: { xs: 'none', md: 'flex' }, mr: 1}}>
-                <Avatar alt="foxy" src={logo} />
-            </IconButton>
+          <IconButton sx={{ p: 0, display: { xs: 'none', md: 'flex' }, mr: 1 }}>
+            <Avatar alt="foxy" src={logo} />
+          </IconButton>
           <Typography
             variant="h6"
             noWrap
@@ -90,14 +95,14 @@ function ResponsiveAppBar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center" >{page.label}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <IconButton sx={{ p: 0 , display: { xs: 'flex', md: 'none' }, mr: 1}}>
-                <Avatar alt="foxy" src={logo} />
-            </IconButton>
+          <IconButton sx={{ p: 0, display: { xs: 'flex', md: 'none' }, mr: 1 }}>
+            <Avatar alt="foxy" src={logo} />
+          </IconButton>
           <Typography
             variant="h5"
             noWrap
@@ -118,16 +123,20 @@ function ResponsiveAppBar() {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
+              <Link to={page.path}>
+
+                <Button
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: 'white', display: 'block' }}
+                >
+                  {page.label}
+                </Button>
+              </Link>
+
             ))}
           </Box>
-              {auth ? <ProfileMenu/> : <AuthenticationGroup/>}
+          {auth ? <ProfileMenu /> : <AuthenticationGroup />}
         </Toolbar>
       </Container>
     </AppBar>

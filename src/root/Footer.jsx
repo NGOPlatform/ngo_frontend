@@ -2,6 +2,7 @@ import { Box } from '@mui/system';
 import { Colors } from '../Globals';
 import Stack from '@mui/material/Stack';
 import { Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -13,13 +14,23 @@ const Footer = () => {
                 sx={{ display: 'flex', justifyContent: 'space-around', alignItems:'center',height:'100%' } }
             >
                 <Typography>
+                <Link to="/terms">
                     <Typography>Termeni si conditii</Typography>
+                </Link>
+                <Link to="/gdpr">
                     <Typography>Prelucrarea datelor cu caracter personal</Typography>
+                    </Link>
+                    <Link to="/cookies">
                     <Typography>Politica de utilizare a cookie-urilor</Typography>
+                    </Link>
                 </Typography>
                 <Typography>
+                <Link to="/contact">
                 <Typography>Contact</Typography>
+                </Link>
+                <Link to="/about">
                 <Typography>Despre</Typography>
+                </Link>
                 </Typography>
             </Stack>
 
