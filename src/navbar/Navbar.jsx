@@ -25,7 +25,7 @@ const navBarStyle = {
   backgroundColor: Colors.dark
 };
 
-function ResponsiveAppBar({auth}) {
+function ResponsiveAppBar({ auth, onLoggedIn }) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -116,7 +116,7 @@ function ResponsiveAppBar({auth}) {
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
-              }}
+            }}
           >
             {/* Foxy */}
           </Typography>
@@ -134,7 +134,7 @@ function ResponsiveAppBar({auth}) {
 
             ))}
           </Box>
-          {auth.authenticated ? <ProfileMenu auth={auth} /> : <AuthenticationGroup />}
+          {auth.authenticated ? <ProfileMenu auth={auth} onLoggedIn={onLoggedIn} /> : <AuthenticationGroup />}
         </Toolbar>
       </Container>
     </AppBar>

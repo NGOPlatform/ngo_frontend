@@ -8,15 +8,13 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
 const SimpleMap = () => {
   const defaultProps = {
     center: {
-      lat: 0,
-      lng: 0
+      lat: 45.747302907012546,
+      lng: 21.231593740319173
     },
-    zoom: 2
+    zoom: 14
   };
-
   return (
     // Important! Always set the container height explicitly
-    <div style={{ height: '100vh', width: '100%' }}>
       <GoogleMapReact
         bootstrapURLKeys={{ key: process.env.REACT_APP_MAPS_API }}
         defaultCenter={defaultProps.center}
@@ -28,7 +26,6 @@ const SimpleMap = () => {
           text="My Marker"
         />
       </GoogleMapReact>
-    </div>
   );
 }
 export default SimpleMap ;

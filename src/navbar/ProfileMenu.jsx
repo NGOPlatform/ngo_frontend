@@ -6,50 +6,72 @@ import Menu from '@mui/material/Menu';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import { useNavigate } from 'react-router-dom';
 const settings = ['Profil', 'statistici', 'Deconectare'];
 
-function ProfileMenu({auth}){
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
+function ProfileMenu({ auth, onLoggedIn }) {
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const navigate = useNavigate();
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
 
-    const handleOpenUserMenu = (event) => {
-        setAnchorElUser(event.currentTarget);
-      };
+  const handleClickProfile = (setting) => {
+    CloseUserMenu();
+    navigate('/profile');
+  };
 
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
-      };
-    
-    return (
-        <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt={auth.userData.firstName} src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-    );
+  const handleClicKStatistics = (setting) => {
+    CloseUserMenu();
+    navigate('/dashboard');
+  };
+
+  const handleClickDisconect = (setting) => {
+    onLoggedIn(false, {});
+    navigate('/login');
+    CloseUserMenu();
+  };
+
+  const CloseUserMenu = () => {
+    setAnchorElUser(null);
+  }
+
+  return (
+    <Box sx={{ flexGrow: 0 }}>
+      <Tooltip title="Open settings">
+        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+          <Avatar alt={auth.userData.firstName} src="/static/images/avatar/2.jpg" />
+        </IconButton>
+      </Tooltip>
+      <Menu
+        sx={{ mt: '45px' }}
+        id="menu-appbar"
+        anchorEl={anchorElUser}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        keepMounted
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        open={Boolean(anchorElUser)}
+        onClose={CloseUserMenu}
+      >
+
+        <MenuItem onClick={() => handleClickProfile()}>
+          <Typography textAlign="center">Profil</Typography>
+        </MenuItem>
+        <MenuItem onClick={() => handleClicKStatistics()}>
+          <Typography textAlign="center">statistici</Typography>
+        </MenuItem>
+        <MenuItem onClick={() => handleClickDisconect()}>
+          <Typography textAlign="center">Deconectare</Typography>
+        </MenuItem>
+      </Menu>
+    </Box>
+  );
 }
 
 export default ProfileMenu;

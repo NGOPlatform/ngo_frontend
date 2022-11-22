@@ -33,7 +33,7 @@ function App() {
 
   return (
     <Box className="App">
-      <Navbar auth={auth}/>
+      <Navbar auth={auth} onLoggedIn={handleLoggedIn}/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login onLoggedIn={handleLoggedIn}/>} />
