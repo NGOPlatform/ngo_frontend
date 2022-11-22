@@ -4,7 +4,7 @@ import { Typography } from '@mui/material';
 import SearchArea from '../Search/SearchArea';
 const Home = () => {
     return (
-        <Grid container sx={{'background-color': Colors['gray-100'] }}>
+        <Grid container sx={{'backgroundColor': Colors['gray-100'] }}>
          
             <Grid item xs={7} height='100%'>
                <SearchArea/>

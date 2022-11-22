@@ -94,7 +94,7 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page.label + '_long'} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center" >{page.label}</Typography>
                 </MenuItem>
               ))}
@@ -117,16 +117,15 @@ function ResponsiveAppBar() {
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
-            }}
+              }}
           >
             {/* Foxy */}
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Link to={page.path}>
-
+              <Link to={page.path} key={page.label + '_longanchor'}>
                 <Button
-                  key={page}
+                  key={page.label + '_longbtn'}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
                 >

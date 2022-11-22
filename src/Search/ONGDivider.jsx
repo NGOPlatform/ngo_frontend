@@ -1,9 +1,7 @@
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import { Button } from "@mui/material";
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-import { Colors } from "../Globals";
 
 const leftRightIconStyle = {
     backgroundColor: '#f1ecff',
