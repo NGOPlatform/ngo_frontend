@@ -134,7 +134,7 @@ function ResponsiveAppBar({auth}) {
 
             ))}
           </Box>
-          {auth ? <ProfileMenu /> : <AuthenticationGroup />}
+          {auth.authenticated ? <ProfileMenu auth={auth} /> : <AuthenticationGroup />}
         </Toolbar>
       </Container>
     </AppBar>

@@ -4,7 +4,8 @@ import { Button, Typography } from '@mui/material';
 import { useTranslation } from "react-i18next";
 import { useState } from 'react';
 import { jwtDetails } from '../Globals';
-import * as jose from 'jose'
+import * as jose from 'jose';
+import { useNavigate } from 'react-router-dom';
 
 const loginWrapperStyle = {
     display: 'flex',
@@ -27,6 +28,7 @@ const loginBoxStyle = {
 
 const Login = ({onLoggedIn}) => {
     const { t } = useTranslation();
+    const navigate = useNavigate();
     const [loginData, setLoginData] = useState({
         'email': '',
         'password': ''
@@ -47,9 +49,14 @@ const Login = ({onLoggedIn}) => {
             jwtDetails.secret, //32 characters
         )
         const jwt = currentUser;
-        const { payload } = await jose.jwtDecrypt(jwt, secret)
-        onLoggedIn(true);
+        const { payload } = await jose.jwtDecrypt(jwt, secret);
         console.log(payload);
+        if(payload.password == loginData.password){
+            delete payload.password;
+            onLoggedIn(true, payload );
+        }
+        navigate('/');
+
     }
 
 
@@ -58,11 +65,15 @@ const Login = ({onLoggedIn}) => {
             <Typography>{t('Login_title')}</Typography>
             <TextField sx={{ width: '350px' }} variant="standard" margin="normal" label={t("email")}
                 value={loginData.email}
-                onChange={(e) => HandleChangeLoginData(e, 'email')} />
+                onChange={(e) => HandleChangeLoginData(e, 'email')}
+                type="email"
+                />
             <TextField sx={{ width: '350px' }} variant="standard" margin="normal"
                 label={t("password")}
                 value={loginData.password}
-                onChange={(e) => HandleChangeLoginData(e, 'password')} />
+                onChange={(e) => HandleChangeLoginData(e, 'password')}
+                type="password"
+                />
             <Button
                 variant='outlined'
                 sx={{ marginTop: '50px' }}

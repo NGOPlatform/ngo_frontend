@@ -1,6 +1,6 @@
 import { Box } from '@mui/system';
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
 
 import Navbar from '../navbar/Navbar';
 import Home from './Home';
@@ -11,12 +11,25 @@ import {
   Route,
 } from "react-router-dom";
 function App() {
+  const [auth, setAuth] = useState({authenticated:false, userData:''});
 
-  const handleLoggedIn = (value)=>{
+  useEffect(() => {
+    const localStorageAuth = JSON.parse(localStorage.getItem('userAuthenticated'));
+    if (localStorageAuth) {
+     setAuth(localStorageAuth);
+    }
+    
+  }, []);
+
+  const handleLoggedIn = (isAuth,userParsedToken)=>{
     // console.log(value)
-      setAuth(value);
+    let newAuth={
+      authenticated: isAuth,
+      userData: userParsedToken
+    }
+    localStorage.setItem('userAuthenticated', JSON.stringify(newAuth))
+      setAuth(newAuth);
   }
-  const [auth, setAuth] = useState(false);
 
   return (
     <Box className="App">
