@@ -12,7 +12,9 @@ const resources = {
       'confirmEmail': 'confirmare email',
       'password': 'parola',
       'confirmPassword': 'confirmare parola',
-      'register_btn': 'înregistrează-te'
+      'register_btn': 'înregistrează-te',
+      'Login_title':'Autentificăte-te',
+      'Login_button':'Autentificăte-te',
     },
   },
   en: {
@@ -23,7 +25,8 @@ const resources = {
       'email': '',
       'confirmEmail': '',
       'password': '',
-      'confirmPassword': ''
+      'confirmPassword': '',
+      
     },
   },
 };

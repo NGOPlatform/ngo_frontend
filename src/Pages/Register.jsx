@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import { Button, Typography } from '@mui/material';
 import { useState } from 'react';
 import { useTranslation } from "react-i18next";
-import {encryption, jwtDetails } from '../Globals';
+import { jwtDetails } from '../Globals';
 import * as jose from 'jose'
 const registerWrapperStyle = {
     display: 'flex',
@@ -40,19 +40,24 @@ const Register = () => {
         newRegisterData[key] = e.target.value;
         setRegisterData(newRegisterData)
     }
-    
-    const handleRegister = async ()=>{
-        let publicData = {};
-        let privateData = {'email':registerData.email, 'password':registerData.password};
-        const secret = jose.base64url.decode('zH4NRP1HMALxxCFnRZABFA7GOJtzU_gIj02alfL1lvI')
-        const jwt = await new jose.EncryptJWT({ 'urn:example:claim': true })
-          .setProtectedHeader({ alg: 'dir', enc: 'A128CBC-HS256' })
-          .setIssuedAt()
-          .setIssuer('urn:example:issuer')
-          .setAudience('urn:example:audience')
-          .setExpirationTime('2h')
-          .encrypt(secret)
-        console.log(jwt)
+
+    const handleRegister = async () => {
+        let userData = {};
+        Object.assign(userData, registerData);
+        const secret = new TextEncoder().encode(
+            jwtDetails.secret, //32 characters
+        )
+        const jwt = await new jose.EncryptJWT(userData)
+            .setProtectedHeader({ alg: jwtDetails.alg, enc: jwtDetails.enc })
+            .setIssuedAt()
+            .setExpirationTime(jwtDetails.expirationTime)
+            .encrypt(secret);
+        let users;
+        if (localStorage.getItem('users') != null)
+            users = JSON.parse(localStorage.getItem('users'));
+        else users = {};
+        users[userData.email] = jwt;
+        localStorage.setItem('users', JSON.stringify(users));
     }
 
     return (<Box sx={registerWrapperStyle}>
@@ -66,10 +71,10 @@ const Register = () => {
                     onChange={(e) => handleChangeRegisterData(e, l)}
                     value={registerData[l]} />
             )}
-            <Button 
-            variant='outlined' 
-            sx={{ marginTop: '50px', gridColumn: '1 / 3' }}
-            onClick={handleRegister}
+            <Button
+                variant='outlined'
+                sx={{ marginTop: '50px', gridColumn: '1 / 3' }}
+                onClick={handleRegister}
             > {t('register_btn')}</Button>
         </Box>
     </Box>);

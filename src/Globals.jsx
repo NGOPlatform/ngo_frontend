@@ -26,21 +26,14 @@ var Colors = {
 
 }
 
-// Encryption settings
-var encryption = {
-        key: 'AAAAAAAAAAAAAA',
-        algorithm: 'aes-256-cbc',
-      };
      
-    // JWT Settings
+// JWT Settings
 var jwtDetails = {
-secret:'1234567890',
-    // Default values that will be automatically applied unless specified.
-    // algorithm: 'HS256',
-    // expiresIn: '12h',
-    // notBefore: '0s',
-    // Other optional values
-    Key:'ThisIsMyAppISS',
+secret: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+alg: 'dir',
+enc: 'A128CBC-HS256',
+expirationTime: '2h'
+  
 };
 
-export { Colors, encryption, jwtDetails }
+export { Colors, jwtDetails }

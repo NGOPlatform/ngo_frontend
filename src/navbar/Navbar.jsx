@@ -25,8 +25,7 @@ const navBarStyle = {
   backgroundColor: Colors.dark
 };
 
-function ResponsiveAppBar() {
-  const [auth, setAuth] = React.useState(false);
+function ResponsiveAppBar({auth}) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {

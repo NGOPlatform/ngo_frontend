@@ -1,24 +1,29 @@
-// import logo from './logo.svg';
 import { Box } from '@mui/system';
 import './App.css';
+import { useState } from 'react';
+
 import Navbar from '../navbar/Navbar';
 import Home from './Home';
 import Footer from './Footer';
-// import Map from '../Map/Map';
-// import Login from '../Pages/Login';
-// import Register from '../Pages/Register';
 import {About, Contact, Cookies, Gdpr, Inbox, Login, Register, Saved, Subscriptions, Terms} from '../Pages/PagesIndex';
 import {
   Routes,
   Route,
 } from "react-router-dom";
 function App() {
+
+  const handleLoggedIn = (value)=>{
+    // console.log(value)
+      setAuth(value);
+  }
+  const [auth, setAuth] = useState(false);
+
   return (
     <Box className="App">
-      <Navbar />
+      <Navbar auth={auth}/>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login onLoggedIn={handleLoggedIn}/>} />
         <Route path="/register" element={<Register />} />
         <Route path="/saved" element={<Saved />} />
         <Route path="/subs" element={<Subscriptions />} />
