@@ -3,7 +3,7 @@
   width:100vw;
   height:100vh;
   display:grid;
-  grid-template-rows: 70px calc(100vh - 70px - 100px) 100px;
+  grid-template-rows: 70px calc(100vh - 70px - 50px) 50px;
   background-color:#e0e0e0;
 }
 
