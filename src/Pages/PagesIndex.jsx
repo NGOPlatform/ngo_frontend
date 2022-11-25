@@ -8,6 +8,7 @@ import Register from './Register';
 import Saved from './Saved';
 import Subscriptions from './Subscriptions';
 import Terms from './Terms';
+import Profile from './Profile';
+import Dashboard from './Dashboard';
 
-
-export {About, Contact, Cookies, Gdpr, Inbox, Login, Register, Saved, Subscriptions, Terms};
+export {About, Contact, Cookies, Gdpr, Inbox, Login, Register, Saved, Subscriptions, Terms, Profile, Dashboard};

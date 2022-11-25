@@ -21,7 +21,7 @@ function ProfileMenu({ auth, onLoggedIn }) {
     navigate('/profile');
   };
 
-  const handleClicKStatistics = (setting) => {
+  const handleClickDashboard = (setting) => {
     CloseUserMenu();
     navigate('/dashboard');
   };
@@ -63,7 +63,7 @@ function ProfileMenu({ auth, onLoggedIn }) {
         <MenuItem onClick={() => handleClickProfile()}>
           <Typography textAlign="center">Profil</Typography>
         </MenuItem>
-        <MenuItem onClick={() => handleClicKStatistics()}>
+        <MenuItem onClick={() => handleClickDashboard()}>
           <Typography textAlign="center">statistici</Typography>
         </MenuItem>
         <MenuItem onClick={() => handleClickDisconect()}>

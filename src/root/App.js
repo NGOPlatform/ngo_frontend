@@ -5,7 +5,7 @@ import { useState, useEffect} from 'react';
 import Navbar from '../navbar/Navbar';
 import Home from './Home';
 import Footer from './Footer';
-import {About, Contact, Cookies, Gdpr, Inbox, Login, Register, Saved, Subscriptions, Terms} from '../Pages/PagesIndex';
+import {About, Contact, Cookies, Gdpr, Inbox, Login, Register, Saved, Subscriptions, Terms, Profile, Dashboard } from '../Pages/PagesIndex';
 import {
   Routes,
   Route,
@@ -46,6 +46,8 @@ function App() {
         <Route path="/terms" element={<Terms />} />
         <Route path="/gdpr" element={<Gdpr />} />
         <Route path="/cookies" element={<Cookies />} />
+        <Route path="/profile" element={<Profile auth={auth} />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="*" element={<div>page not found</div>} />
       </Routes>
       <Footer />
