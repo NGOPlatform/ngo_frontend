@@ -6,7 +6,7 @@ import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import HelpCenterIcon from '@mui/icons-material/HelpCenter';
 import { Colors } from '../Globals';
-const ONGCard = ({title, description}) => {
+const ONGCard = ({ title, description }) => {
     return (
         <ListItem alignItems="flex-start">
             <ListItemAvatar>
@@ -19,14 +19,22 @@ const ONGCard = ({title, description}) => {
                 secondary={
                     <React.Fragment>
                         <Typography
-                            sx={{ display: 'inline' }}
-                            component="span"
+                            sx={{
+                                display: 'inline',
+                                overflow: 'hidden',
+                                textOverflow: 'ellipsis',
+                                display: '-webkit-box',
+                                '-webkit-box-orient': 'vertical',
+                                '-webkit-line-clamp': '4', /* start showing ellipsis when 3rd line is reached */
+                                whiteSpace: 'pre-wrap'
+                            }}
                             variant="body2"
                             color="text.primary"
+
                         >
-                        {description}
+                            {description}
                         </Typography>
-                          
+
                     </React.Fragment>
                 }
             />

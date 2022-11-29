@@ -7,34 +7,10 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
-import { loremIpsum } from 'react-lorem-ipsum';
-const MesajGeneric = "A aparut un ong nou";
-
-const InboxData = [
-    {
-        'ongName': 'Haine micuti',
-        'title': MesajGeneric,
-        'shortDesc': loremIpsum(),
-        'message': ''
-
-    },
-    {
-        'ongName': '',
-        'title': MesajGeneric,
-        'shortDesc': loremIpsum(),
-        'message': ''
-
-    },
-    {
-        'ongName': '',
-        'title': MesajGeneric,
-        'shortDesc': loremIpsum(),
-        'message': ''
-
-    },
-]
+import { UseInboxData } from '../datastore/InboxData.jsx';
 
 const Inbox = () => {
+    const InboxData = UseInboxData();
     return (
         <Box >
 
