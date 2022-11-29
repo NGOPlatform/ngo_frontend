@@ -16,12 +16,13 @@ const loginWrapperStyle = {
 const loginBoxStyle = {
     borderRadius: '12px',
     background: '#e0e0e0',
-    boxShadow: '7px 7px 19px #d0d0d0, -7px -7px 19px #f0f0f0',
+    // boxShadow: '7px 7px 19px #d0d0d0, -7px -7px 19px #f0f0f0',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     p: '20px',
     boxSizing: 'border-box',
+    border:'1px solid rgba(0, 0, 0, 0.23)'
 }
 
 
@@ -63,12 +64,12 @@ const Login = ({onLoggedIn}) => {
     return (<Box sx={loginWrapperStyle}>
         <Box sx={loginBoxStyle}>
             <Typography>{t('Login_title')}</Typography>
-            <TextField sx={{ width: '350px' }} variant="standard" margin="normal" label={t("email")}
+            <TextField sx={{ width: '350px' }}  margin="normal" label={t("email")}
                 value={loginData.email}
                 onChange={(e) => HandleChangeLoginData(e, 'email')}
                 type="email"
                 />
-            <TextField sx={{ width: '350px' }} variant="standard" margin="normal"
+            <TextField sx={{ width: '350px' }}  margin="normal"
                 label={t("password")}
                 value={loginData.password}
                 onChange={(e) => HandleChangeLoginData(e, 'password')}

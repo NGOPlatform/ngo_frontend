@@ -16,7 +16,8 @@ const registerWrapperStyle = {
 const registerBoxStyle = {
     borderRadius: '12px',
     background: '#e0e0e0',
-    boxShadow: '7px 7px 19px #d0d0d0, -7px -7px 19px #f0f0f0',
+    // boxShadow: '7px 7px 19px #d0d0d0, -7px -7px 19px #f0f0f0',
+    border:'1px solid rgba(0, 0, 0, 0.23)',
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
     flexDirection: 'column',
@@ -109,7 +110,7 @@ const Register = () => {
                 <TextField
                     key={l.label}
                     sx={{ width: '350px' }}
-                    variant="standard" margin="normal" label={t(l.label)}
+                    margin="normal" label={t(l.label)}
                     onChange={(e) => handleChangeInputData(e, l)}
                     type={l.type}
                     helperText={l.error ? l.errorHelperText : l.helperText }
@@ -118,7 +119,7 @@ const Register = () => {
             )}
             <Button
                 variant='outlined'
-                sx={{ marginTop: '50px', gridColumn: '1 / 3' }}
+                sx={{ marginTop: '10px', gridColumn: '1 / 3',height:'50px' }}
                 onClick={handleRegister}
             > {t('register_btn')}</Button>
         </Box>
