@@ -1,44 +1,48 @@
-import * as React from 'react';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import Avatar from '@mui/material/Avatar';
+import React from 'react';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
+import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import HelpCenterIcon from '@mui/icons-material/HelpCenter';
-import { Colors } from '../Globals';
-const ONGCard = ({ title, description }) => {
+import IconButton from '@mui/material/IconButton';
+import LocationOn from '@mui/icons-material/LocationOn';
+import MoreHoriz from '@mui/icons-material/MoreHoriz';
+import Favorite from '@mui/icons-material/Favorite';
+
+export const ONGCard = ({ title, address, description }) => {
+
     return (
-        <ListItem alignItems="flex-start">
-            <ListItemAvatar>
-                <Avatar sx={{ backgroundColor: Colors.green }} variant="rounded">
-                    <HelpCenterIcon />
-                </Avatar>
-            </ListItemAvatar>
-            <ListItemText
-                primary={title}
-                secondary={
-                    <React.Fragment>
-                        <Typography
-                            sx={{
-                                display: 'inline',
-                                overflow: 'hidden',
-                                textOverflow: 'ellipsis',
-                                display: '-webkit-box',
-                                '-webkit-box-orient': 'vertical',
-                                '-webkit-line-clamp': '4', /* start showing ellipsis when 3rd line is reached */
-                                whiteSpace: 'pre-wrap'
-                            }}
-                            variant="body2"
-                            color="text.primary"
+        <Card elevation={0} >
+            <CardContent>
+                <IconButton >
+                    <Favorite />
+                </IconButton>
+                <h3 >{title}</h3>
+                <Box color={'grey.500'} display={'flex'} alignItems={'center'} mb={1}>
+                    <LocationOn />
+                    <span>{address}</span>
+                </Box>
+                <Box
+                    display={'flex'}
+                    alignItems={'center'}
+                    mb={1}
+                >
+                </Box>
+                <Typography color={'textSecondary'} variant={'body2'}
+                    sx={{
+                        display: 'inline',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        display: '-webkit-box',
+                        '-webkit-box-orient': 'vertical',
+                        '-webkit-line-clamp': '2', /* start showing ellipsis when 3rd line is reached */
+                        whiteSpace: 'pre-wrap',
+                    }}>
+                    {description}
+                </Typography>
+            </CardContent>
+        </Card>
+    )
+};
 
-                        >
-                            {description}
-                        </Typography>
-
-                    </React.Fragment>
-                }
-            />
-        </ListItem>);
-}
-
-export default ONGCard;
+export default ONGCard

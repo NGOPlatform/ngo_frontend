@@ -11,7 +11,7 @@ export default function ONGList() {
             {ONGs.map((el, i) => {
                 return (
                     <React.Fragment key={i + "_WrapperONGCard"}>
-                        <ONGCard  key={i + "_ONGCard"} title={el.name} description={el.description}/>
+                        <ONGCard  key={i + "_ONGCard"} title={el.name} description={el.description} address={el.address}/>
                         { i !== ONGs.length - 1 && <Divider key={i+ "_ONGCardDivider"} variant="inset" component="li" />}
                     </React.Fragment>)
 
