@@ -41,7 +41,7 @@ export const ONGCard = ({  ONG, onSaveONG }) => {
                         textOverflow: 'ellipsis',
                         display: '-webkit-box',
                         '-webkit-box-orient': 'vertical',
-                        '-webkit-line-clamp': '2', /* start showing ellipsis when 3rd line is reached */
+                        '-webkit-line-clamp': '2',
                         whiteSpace: 'pre-wrap',
                     }}>
                     {capitalizeFirstLetter(ONG.description)}
