@@ -6,13 +6,13 @@ import { useState, useEffect } from 'react';
 import ONGPagination from './ONGPagination';
 import { getStartIndex, getEndIndex } from './paginationMath'
 
-function SearchArea({ONGs,onSaveONG}) {
+function SearchArea({ONGs,onSaveONG,filteredONGs, setFilteredONGs}) {
   const filterONGs = (ONGs,page,rowsPerPage) => {
     return ONGs.slice(getStartIndex(page, rowsPerPage) -1, getEndIndex(page, rowsPerPage, ONGs.length) )
    }
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(3);
-  const [filteredONGs, setFilteredONGs] = useState([])
+
 
   useEffect(() => {
     setFilteredONGs(filterONGs(ONGs,page,rowsPerPage));

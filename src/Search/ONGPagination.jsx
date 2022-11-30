@@ -24,9 +24,10 @@ export default function ONGPagination({ collectionCount, onChangeRowsPerPage, on
         value={rowsPerPage}
         onChange={onChangeRowsPerPage}
       >
-        <MenuItem value={1}>1</MenuItem>
         <MenuItem value={3}>3</MenuItem>
         <MenuItem value={5}>5</MenuItem>
+        <MenuItem value={10}>10</MenuItem>
+        <MenuItem value={25}>25</MenuItem>
       </Select >{
 
         <Typography >{getStartIndex(page, rowsPerPage)}-{getEndIndex(page, rowsPerPage, collectionCount)} of {collectionCount}</Typography>
