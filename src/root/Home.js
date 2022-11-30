@@ -1,6 +1,5 @@
 import { Colors } from '../Globals';
 import Grid from '@mui/material/Grid';
-import { Typography } from '@mui/material';
 import SearchArea from '../Search/SearchArea';
 import Map from '../Map/Map';
 const Home = () => {
@@ -11,7 +10,6 @@ const Home = () => {
                <SearchArea/>
             </Grid>
             <Grid item xs={8}>
-                {/* <Typography>xs</Typography> */}
                 <Map/>
             </Grid>
         </Grid>

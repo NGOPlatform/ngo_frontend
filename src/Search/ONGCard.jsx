@@ -1,26 +1,33 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import LocationOn from '@mui/icons-material/LocationOn';
-import MoreHoriz from '@mui/icons-material/MoreHoriz';
 import Favorite from '@mui/icons-material/Favorite';
 
-export const ONGCard = ({ title, address, description }) => {
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+  }
 
+export const ONGCard = ({  ONG, onSaveONG }) => {
     return (
         <Card elevation={0} >
             <CardContent>
-                <IconButton >
-                    <Favorite />
+            <Box sx={{display:'flex', justifyContent:'space-between',alignItems:'flex-start'}}>
+                <Typography variant="h6" sx={{marginBottom:0,marginTop:0}}>{capitalizeFirstLetter(ONG.name)}</Typography>
+                <IconButton sx={{padding:'auto 0'}} onClick={()=>{onSaveONG(ONG)}}>
+                    <Favorite sx={{color: ONG.isSaved?'#fc5185':''}} />
                 </IconButton>
-                <h3 >{title}</h3>
+                </Box >
                 <Box color={'grey.500'} display={'flex'} alignItems={'center'} mb={1}>
-                    <LocationOn />
-                    <span>{address}</span>
+                    <LocationOn sx={{fontSize: '18px', marginRight: '4px'}}/>
+                    <span sx={{color: 'rgb(158, 158, 158)',
+                    fontSize: '0.875rem',
+                    fontWeight: 400,
+                    lineHeight: 1.43,
+                    letterSpacing: '0.01071em'}}>{ONG.address.toLowerCase()}</span>
                 </Box>
                 <Box
                     display={'flex'}
@@ -30,7 +37,6 @@ export const ONGCard = ({ title, address, description }) => {
                 </Box>
                 <Typography color={'textSecondary'} variant={'body2'}
                     sx={{
-                        display: 'inline',
                         overflow: 'hidden',
                         textOverflow: 'ellipsis',
                         display: '-webkit-box',
@@ -38,7 +44,7 @@ export const ONGCard = ({ title, address, description }) => {
                         '-webkit-line-clamp': '2', /* start showing ellipsis when 3rd line is reached */
                         whiteSpace: 'pre-wrap',
                     }}>
-                    {description}
+                    {capitalizeFirstLetter(ONG.description)}
                 </Typography>
             </CardContent>
         </Card>
