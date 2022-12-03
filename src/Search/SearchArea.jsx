@@ -6,36 +6,31 @@ import { useState, useEffect } from 'react';
 import ONGPagination from './ONGPagination';
 import { getStartIndex, getEndIndex } from './paginationMath'
 
-function SearchArea({ONGs,onSaveONG,filteredONGs, setFilteredONGs}) {
-  const filterONGs = (ONGs,page,rowsPerPage) => {
-    return ONGs.slice(getStartIndex(page, rowsPerPage) -1, getEndIndex(page, rowsPerPage, ONGs.length) )
-   }
+function SearchArea({collectionCount, ONGs, onSaveONG, searchCriteria, onsetNumberOfONGs, onsetcity, onsetcounty, onsetdescription, onsetStart }) {
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(3);
-
 
   useEffect(() => {
-    setFilteredONGs(filterONGs(ONGs,page,rowsPerPage));
-  }, [ONGs,page,rowsPerPage])
+    onsetStart(getStartIndex(page, searchCriteria.numberOfONGs) - 1);
+  }, [ page, searchCriteria.numberOfONGs])
 
-  
+
 
   const handleChangePage = (pageCount) => {
-    if (pageCount < 0 || pageCount > Math.floor(ONGs.length / rowsPerPage) - (ONGs.length % rowsPerPage ? 0 : 1))
+    if (pageCount < 0 || pageCount > Math.floor(collectionCount / searchCriteria.numberOfONGs) - (collectionCount % searchCriteria.numberOfONGs ? 0 : 1))
       return;
     setPage(pageCount);
   };
 
   const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(parseInt(event.target.value, 10));
+    onsetNumberOfONGs(parseInt(event.target.value, 10));
     setPage(0);
   };
 
   return (
     <Box px={4} sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-      <SearchInputs />
-      <ONGPagination collectionCount={ONGs.length} onChangePage={handleChangePage} onChangeRowsPerPage={handleChangeRowsPerPage} page={page} rowsPerPage={rowsPerPage} />
-      <ONGList onSaveONG={onSaveONG} ONGs={filteredONGs} />
+      <SearchInputs onsetcity={onsetcity} onsetcounty={onsetcounty} onsetdescription={onsetdescription} searchCriteria={searchCriteria}/>
+      <ONGPagination collectionCount={collectionCount} onChangePage={handleChangePage} onChangeRowsPerPage={handleChangeRowsPerPage} page={page} rowsPerPage={searchCriteria.numberOfONGs} />
+      <ONGList onSaveONG={onSaveONG} ONGs={ONGs} />
     </Box>
   );
 }

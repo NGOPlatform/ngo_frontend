@@ -16,7 +16,7 @@ export const ONGCard = ({  ONG, onSaveONG }) => {
         <Card elevation={0} >
             <CardContent>
             <Box sx={{display:'flex', justifyContent:'space-between',alignItems:'flex-start'}}>
-                <Typography variant="h6" sx={{marginBottom:0,marginTop:0}}>{capitalizeFirstLetter(ONG.name)}</Typography>
+                <h4 style={{marginBottom:0,marginTop:0}}>{ONG.name}</h4>
                 <IconButton sx={{padding:'auto 0'}} onClick={()=>{onSaveONG(ONG)}}>
                     <Favorite sx={{color: ONG.isSaved?'#fc5185':''}} />
                 </IconButton>

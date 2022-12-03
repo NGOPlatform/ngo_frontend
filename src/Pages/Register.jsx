@@ -56,7 +56,7 @@ const Register = () => {
         let registerData = ExtractRegisterData();
         let userData = {};
         if (!isValidRegisterData(registerData)) return;
-        console.log('flag2')
+        // console.log('flag2')
         Object.assign(userData, registerData);
         const secret = new TextEncoder().encode(
             jwtDetails.secret, //32 characters

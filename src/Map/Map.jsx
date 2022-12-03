@@ -1,64 +1,60 @@
 import React from "react";
-import GoogleMapReact from 'google-map-react';
-import { getCoordinates } from "./Geocode";
-import { useEffect } from "react";
-import { useState } from "react";
-import LocationOnIcon from '@mui/icons-material/LocationOn';
+import { useState, useRef, useEffect } from "react";
+import { Wrapper } from "@googlemaps/react-wrapper";
+const defaultProps = {
+  center: {
+    lat: 45.747302907012546,
+    lng: 21.231593740319173
+  },
+  zoom: 14
+};
 
-const AnyReactComponent = ({  }) => 
+const Map = ({ ...options }) => {
+  const ref = useRef();
 
-  <div style={
-    {
-      height: '30px',
-      width: '30px',
-      borderRadius: '100%',
-      backgroundColor: '#775ada',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      textAlign: 'center',
-      fontWeight: 'bold'
-    }}><LocationOnIcon sx={{color:'white'}} /></div>;
-
-
-
-const Map = ({ markerAddresses }) => {
-
-  const [Markers, setMarkers] = useState([]);
   useEffect(() => {
-    const getMarkers = async () => {
-      const newAddresses = await Promise.all(markerAddresses.map( (el)=>  getCoordinates(el) ))
-      setMarkers(newAddresses)
-    };
-    getMarkers();
-  }, [markerAddresses])
+    const map = new window.google.maps.Map(ref.current, {
+      center: options.center,
+      zoom: options.zoom,
+      mapTypeControl: false,
+    });
+    map.setOptions({ styles: [
+      {
+        featureType: "poi.business",
+        stylers: [{ visibility: "off" }], 
+      },
+      {
+        featureType: "transit",
+        elementType: "labels.icon",
+        stylers: [{ visibility: "off" }],
+      },
+    ] });
+  });
+  return <div ref={ref} id="map" style={{height:'100%', width:'100%'}}/>;
+}
 
-  const defaultProps = {
-    center: {
-      lat: 45.747302907012546,
-      lng: 21.231593740319173
-    },
-    zoom: 14
-  };
+const SampleMap = ({ markerAddresses }) => {
 
+  // const [Markers, setMarkers] = useState([]);
+  // useEffect(() => {
+  //   const getMarkers = async () => {
+  //     const newAddresses = await Promise.all(markerAddresses.map( (el)=>  getCoordinates(el) ))
+  //     setMarkers(newAddresses)
+  //   };
+  //   // getMarkers();
+  // }, [markerAddresses])
 
   return (
-
-    // Important! Always set the container height explicitly
-    <GoogleMapReact
-      bootstrapURLKeys={{ key: process.env.REACT_APP_MAPS_API }}
-      defaultCenter={defaultProps.center}
-      defaultZoom={defaultProps.zoom}
-    >
-      {Markers.map((el) => {
-        return (<AnyReactComponent
-          key={el.lat + ' ' + el.lng }
-          lat={el.lat}
-          lng={el.lng}
-        />
-        );
-      })}
-    </GoogleMapReact>
+<></>
+    // <Wrapper apiKey={process.env.REACT_APP_MAPS_API} >
+    //   <Map center={defaultProps.center} zoom={defaultProps.zoom} suppressMarkers={true}>
+    //   </Map>
+    // </Wrapper>
+    
   );
 }
-export default Map;
+
+
+
+
+export default SampleMap;
