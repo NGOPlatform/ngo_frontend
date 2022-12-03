@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid';
 import SearchArea from '../Search/SearchArea';
 import Map from '../Map/Map';
 import { useONGs } from '../datastore/ONGs';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const Home = () => {
 
@@ -68,7 +68,7 @@ const Home = () => {
                 />
             </Grid>
             <Grid item xs={8}>
-                <Map markerAddresses={ONGs.map(el => el.address)} />
+                <Map markerAddresses={ONGs.map(el => el.address)} city={searchCriteria.city} county={searchCriteria.county} />
             </Grid></>)
             }
         </Grid>

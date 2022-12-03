@@ -3,7 +3,7 @@ import Geocode from "react-geocode";
 
 
 export function getCoordinates(address){
-    Geocode.setApiKey(process.env.REACT_APP_MAPS_API);
+Geocode.setApiKey(process.env.REACT_APP_MAPS_API);
 Geocode.setLanguage("ro");
 Geocode.setRegion("ro");
 
@@ -18,10 +18,11 @@ Geocode.enableDebug();
     return Geocode.fromAddress(address).then(
         (response) => {
           const { lat, lng } = response.results[0].geometry.location;
+          // console.log(lat,lng)
           return { lat, lng } ;
         },
         (error) => {
-            console.log(error)
+            // console.log(error)
             return {lat:0, lng:0 }
         }
       );

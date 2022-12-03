@@ -1,14 +1,7 @@
 import React from "react";
 import { useState, useRef, useEffect } from "react";
 import { Wrapper } from "@googlemaps/react-wrapper";
-const defaultProps = {
-  center: {
-    lat: 45.747302907012546,
-    lng: 21.231593740319173
-  },
-  zoom: 14
-};
-
+import { getCoordinates } from "./Geocode";
 const Map = ({ ...options }) => {
   const ref = useRef();
 
@@ -18,22 +11,56 @@ const Map = ({ ...options }) => {
       zoom: options.zoom,
       mapTypeControl: false,
     });
-    map.setOptions({ styles: [
-      {
-        featureType: "poi.business",
-        stylers: [{ visibility: "off" }], 
-      },
-      {
-        featureType: "transit",
-        elementType: "labels.icon",
-        stylers: [{ visibility: "off" }],
-      },
-    ] });
+    map.setOptions({
+      styles: [
+        {
+          featureType: "poi.business",
+          stylers: [{ visibility: "off" }],
+        },
+        {
+          featureType: "transit",
+          elementType: "labels.icon",
+          stylers: [{ visibility: "off" }],
+        },
+      ]
+    });
   });
-  return <div ref={ref} id="map" style={{height:'100%', width:'100%'}}/>;
+  return <div ref={ref} id="map" style={{ height: '100%', width: '100%' }} />;
 }
 
-const SampleMap = ({ markerAddresses }) => {
+const MapWrapper = ({ markerAddresses, city, county }) => {
+  const defaultCenter = {
+    lat: 45.747302907012546,
+    lng: 21.231593740319173
+  }
+  const [center, setCenter] = useState(defaultCenter);
+  const zoom = 14;
+  const [isLoading, setIsLoading] = useState(false);
+  const cityRef =  useRef(city);
+  const countyRef =  useRef(county);
+
+  useEffect(() => {
+    cityRef.current = city;
+    countyRef.current = county;
+    const getCenter = async () => {
+      const address = cityRef.current + ' ' + countyRef.current;
+      let newCenter = await getCoordinates(address);
+      // console.log(address)
+      if(newCenter.lat === 0 && newCenter.lng === 0)
+        newCenter = defaultCenter;  
+      setCenter(newCenter);
+      setIsLoading(false);
+
+    }
+    if ((city || county) && !isLoading){
+      setIsLoading(true);
+      setTimeout(()=>{
+        getCenter();
+        setIsLoading(false);
+      },3000)
+    }
+  }, [city, county])
+
 
   // const [Markers, setMarkers] = useState([]);
   // useEffect(() => {
@@ -45,16 +72,15 @@ const SampleMap = ({ markerAddresses }) => {
   // }, [markerAddresses])
 
   return (
-<></>
-    // <Wrapper apiKey={process.env.REACT_APP_MAPS_API} >
-    //   <Map center={defaultProps.center} zoom={defaultProps.zoom} suppressMarkers={true}>
-    //   </Map>
-    // </Wrapper>
-    
+    <Wrapper apiKey={process.env.REACT_APP_MAPS_API} >
+      {isLoading? "loading" : <Map center={center} zoom={zoom} suppressMarkers={true}></Map>}
+      
+    </Wrapper>
+
   );
 }
 
 
 
 
-export default SampleMap;
+export default MapWrapper;
