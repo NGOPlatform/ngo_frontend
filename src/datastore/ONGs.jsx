@@ -8,7 +8,7 @@ export function useONGs(searchCriteria) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const url = `http://localhost:8081/filter`
+        const url = `http://localhost:8081/list`
         const { data: response } = await axios.get(url, { params: { size: searchCriteria.numberOfONGs, skip: searchCriteria.start, city: searchCriteria.city, county: searchCriteria.county, description: searchCriteria.description } });
         setData(response);
       } catch (error) {
