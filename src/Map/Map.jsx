@@ -1,40 +1,44 @@
 import React from "react";
-import useDeepCompareEffect from "use-deep-compare-effect";
+import {  useRef, useEffect } from "react";
 
-const Map = ({ map, setMap, center, zoom}) => {
-  const ref = React.useRef(null);
-React.useEffect(() => {
-  if (ref.current && !map) {
-    setMap(new window.google.maps.Map(ref.current, {
-        center: center,
-        zoom: zoom,
-        mapTypeControl: false,
-        styles: [
-          {
-            featureType: "poi.business",
-            stylers: [{ visibility: "off" }],
-          },
-          {
-            featureType: "transit",
-            elementType: "labels.icon",
-            stylers: [{ visibility: "off" }],
-          },
-        ]
-      }));
-  }
-}, [ref,center,zoom, map]);
-  
 
-  useDeepCompareEffect(() => {
-    if (map) {
-      console.log(1)
-      map.setOptions(center,zoom);
-    }
-  }, [map, center,zoom]);
+const ONGsMap = ({ center, zoom,map, onMapChanged, children }) => {
+  const ref = useRef();
+  useEffect(() => {
 
-  return <div ref={ref} id="map" style={{ height: '100%', width: '100%' }} />;
+    const map = new window.google.maps.Map(ref.current, {
+      center: center,
+      zoom: zoom,
+      mapTypeControl: false,
+    });
+
+    map.setOptions({
+      styles: [
+        {
+          featureType: "poi.business",
+          stylers: [{ visibility: "off" }],
+        },
+        {
+          featureType: "transit",
+          elementType: "labels.icon",
+          stylers: [{ visibility: "off" }],
+        },
+      ]
+    });
+
+    onMapChanged(map);
+  },[center]);
+        
+        return <>
+        <div ref={ref} id="map" style={{ height: '100%', width: '100%' }} />
+        {React.Children.map(children, (child) => {
+          if (React.isValidElement(child)) {
+            // set the map prop on the child component
+            // @ts-ignore
+            return React.cloneElement(child, { map });
+          }
+        })}
+      </>
 }
 
-export default Map
-
-
+export default ONGsMap;

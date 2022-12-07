@@ -1,7 +1,7 @@
 import { Colors } from '../Globals';
 import Grid from '@mui/material/Grid';
 import SearchArea from '../Search/SearchArea';
-import Map from '../Map/Map';
+import MapWrapper from '../Map/MapWrapper';
 import { useONGs } from '../datastore/ONGs';
 import { useState } from 'react';
 
@@ -68,7 +68,7 @@ const Home = () => {
                 />
             </Grid>
             <Grid item xs={8}>
-                <Map markerAddresses={ONGs.map(el => el.address)} city={searchCriteria.city} county={searchCriteria.county} />
+                <MapWrapper markerAddresses={ONGs.map(el => el.address)} city={searchCriteria.city} county={searchCriteria.county} />
             </Grid></>)
             }
         </Grid>
