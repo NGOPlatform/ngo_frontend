@@ -9,15 +9,17 @@ const MapWrapper = ({ markerAddresses, city, county }) => {
       lat: 45.747302907012546,
       lng: 21.231593740319173
     }
+
+    const outOfView = {
+      lat: 0,
+      lng: 0
+    }
     const [center, setCenter] = useState(defaultCenter);
     const zoom = 14;
     const [isLoading, setIsLoading] = useState(false);
     const cityRef =  useRef(city);
     const countyRef =  useRef(county);
-    const [map,setMap] = useState(null);
-    const handleMapChanged = (newMap)=>{
-      setMap(newMap);
-    }
+   
 
 
 
@@ -44,19 +46,23 @@ const MapWrapper = ({ markerAddresses, city, county }) => {
     }, [city, county])
   
   
-    // const [Markers, setMarkers] = useState([]);
-    // useEffect(() => {
-    //   const getMarkers = async () => {
-    //     const newAddresses = await Promise.all(markerAddresses.map( (el)=>  getCoordinates(el) ))
-    //     setMarkers(newAddresses)
-    //   };
-    //   // getMarkers();
-    // }, [markerAddresses])
+    const [Markers, setMarkers] = useState([]);
+    useEffect(() => {
+      const getMarkers = async () => {
+        Promise.all(markerAddresses.map( (el)=>  getCoordinates(el) )).then((values)=>{
+          setMarkers(values);
+        // console.log(values);
+        })
+      };
+      getMarkers();
+    }, [markerAddresses])
   
     return (
       <Wrapper apiKey={process.env.REACT_APP_MAPS_API} >
-        {isLoading? "loading" : (<ONGsMap center={center} zoom={zoom} suppressMarkers={true} map={map} onMapChanged={handleMapChanged}>
-          <ONGPoint position={defaultCenter} map={map} />
+        {isLoading? "loading" : (<ONGsMap center={center} zoom={zoom} suppressMarkers={true}>
+          {Markers.map((el,i)=>
+            <ONGPoint key={"OngPoint_" + i} position={el ?? outOfView} />
+          )}
         </ONGsMap>)}
         
       </Wrapper>

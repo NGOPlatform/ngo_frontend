@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import {  useRef, useEffect } from "react";
 
 
-const ONGsMap = ({ center, zoom,map, onMapChanged, children }) => {
+const ONGsMap = ({ center, zoom, children }) => {
   const ref = useRef();
+  const [map,setMap] = useState(null);
+  const handleMapChanged = (newMap)=>{
+    setMap(newMap);
+  }
   useEffect(() => {
 
     const map = new window.google.maps.Map(ref.current, {
@@ -26,7 +30,7 @@ const ONGsMap = ({ center, zoom,map, onMapChanged, children }) => {
       ]
     });
 
-    onMapChanged(map);
+    handleMapChanged(map);
   },[center]);
         
         return <>
