@@ -22,6 +22,7 @@ export function useONGs(searchCriteria) {
 
   return {
     data,
+    setData,
     loading,
   };
 

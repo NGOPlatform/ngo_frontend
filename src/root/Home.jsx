@@ -16,9 +16,26 @@ const Home = () => {
     });
     const {
         data: ONGs,
+        setData: setONGs,
         loading,
       } = useONGs(searchCriteria);
-    
+        
+    //   const [ONGs, setONGs] = useState();
+    //   const [loading, setLoading] = useState(true);
+      
+    //     useEffect(()=>{
+          
+    //       const {
+    //           data: newONGs,
+    //           loading,
+    //         } = useONGs(searchCriteria);
+  
+    //         setONGs(newONGs);
+    //         setLoading(loading);
+  
+    //     },[searchCriteria])
+
+      
     const setNumberOfONGs = (value) => {
         setSearchCriteria({ ...searchCriteria, numberOfONGs: value });
     }
@@ -38,11 +55,11 @@ const Home = () => {
 
 
     const handleSaveONG = (element) => {
-        // let newONGs = [...ONGs];
-        // let index = newONGs.findIndex((newONG) => newONG.name === element.name && newONG.address === element.address);
-        // newONGs[index].isSaved = !newONGs[index].isSaved;
-        // setONGs(newONGs);
-        console.log('saving is commented out right now')
+        let newONGs = [...ONGs];
+        let index = newONGs.findIndex((newONG) => newONG.name === element.name && newONG.address === element.address);
+        newONGs[index].isSaved = !newONGs[index].isSaved;
+        setONGs(newONGs);
+        // console.log('saving is commented out right now')
     }
 
 
