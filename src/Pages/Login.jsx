@@ -51,7 +51,7 @@ const Login = ({onLoggedIn}) => {
         )
         const jwt = currentUser;
         const { payload } = await jose.jwtDecrypt(jwt, secret);
-        console.log(payload);
+        // console.log(payload);
         if(payload.password === loginData.password){
             delete payload.password;
             onLoggedIn(true, payload );
