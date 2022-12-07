@@ -1,5 +1,6 @@
 import { Wrapper } from "@googlemaps/react-wrapper";
 import { useState, useRef, useEffect } from "react";
+import Loading from "../Shared/Loading";
 import { getCoordinates } from "./Geocode";
 import ONGsMap from "./Map";
 import ONGPoint from "./ONGPoint";
@@ -59,12 +60,11 @@ const MapWrapper = ({ markerAddresses, city, county }) => {
   
     return (
       <Wrapper apiKey={process.env.REACT_APP_MAPS_API} >
-        {isLoading? "loading" : (<ONGsMap center={center} zoom={zoom} suppressMarkers={true}>
+        {isLoading? <Loading/> : (<ONGsMap center={center} zoom={zoom} suppressMarkers={true}>
           {Markers.map((el,i)=>
             <ONGPoint key={"OngPoint_" + i} position={el ?? outOfView} />
           )}
         </ONGsMap>)}
-        
       </Wrapper>
   
     );
