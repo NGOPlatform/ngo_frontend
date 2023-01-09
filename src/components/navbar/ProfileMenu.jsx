@@ -9,7 +9,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from 'react-router-dom';
 const settings = ['Profil', 'statistici', 'Deconectare'];
 
-function ProfileMenu({ auth, onLoggedIn }) {
+function ProfileMenu({ userData, onLoggedIn }) {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const navigate = useNavigate();
   const handleOpenUserMenu = (event) => {
@@ -40,7 +40,7 @@ function ProfileMenu({ auth, onLoggedIn }) {
     <Box sx={{ flexGrow: 0 }}>
       <Tooltip title="Open settings">
         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-          <Avatar alt={auth.userData.firstName} src="/static/images/avatar/2.jpg" />
+          <Avatar alt={userData.firstName} src="/static/images/avatar/2.jpg" />
         </IconButton>
       </Tooltip>
       <Menu

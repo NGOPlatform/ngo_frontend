@@ -4,7 +4,7 @@ import Divider from '@mui/material/Divider';
 import ONGCard from './ONGCard';
 import { Box } from '@mui/system';
 import { Button, Typography } from '@mui/material';
-import { Colors } from '../Globals';
+import { Colors } from '../../Globals';
 import { useState } from 'react';
 import { useEffect } from 'react';
 const ButtonStyle={

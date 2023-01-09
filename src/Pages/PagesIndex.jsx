@@ -10,5 +10,5 @@ import Subscriptions from './Subscriptions';
 import Terms from './Terms';
 import Profile from './Profile';
 import Dashboard from './Dashboard';
-
-export {About, Contact, Cookies, Gdpr, Inbox, Login, Register, Saved, Subscriptions, Terms, Profile, Dashboard};
+import MapPage from './Map';
+export {About, Contact, Cookies, Gdpr, Inbox, Login, Register, Saved, Subscriptions, Terms, Profile, Dashboard, MapPage};

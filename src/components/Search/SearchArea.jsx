@@ -6,11 +6,11 @@ import { useState, useEffect } from 'react';
 import ONGPagination from './ONGPagination';
 import { getStartIndex, getEndIndex } from './paginationMath'
 
-function SearchArea({collectionCount, ONGs, onSaveONG, searchCriteria, onsetNumberOfONGs, onsetcity, onsetcounty, onsetdescription, onsetStart }) {
+function SearchArea({collectionCount, ONGs, onSaveONG, searchCriteria, onSetSearchCriteria }) {
   const [page, setPage] = React.useState(0);
 
   useEffect(() => {
-    onsetStart(getStartIndex(page, searchCriteria.numberOfONGs) - 1);
+    // onsetStart(getStartIndex(page, searchCriteria.numberOfONGs) - 1);
   }, [ page, searchCriteria.numberOfONGs])
 
 
@@ -22,13 +22,13 @@ function SearchArea({collectionCount, ONGs, onSaveONG, searchCriteria, onsetNumb
   };
 
   const handleChangeRowsPerPage = (event) => {
-    onsetNumberOfONGs(parseInt(event.target.value, 10));
+    // onsetNumberOfONGs(parseInt(event.target.value, 10));
     setPage(0);
   };
 
   return (
     <Box px={4} sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-      <SearchInputs onsetcity={onsetcity} onsetcounty={onsetcounty} onsetdescription={onsetdescription} searchCriteria={searchCriteria}/>
+      <SearchInputs onSetSearchCriteria={onSetSearchCriteria}/>
       <ONGPagination collectionCount={collectionCount} onChangePage={handleChangePage} onChangeRowsPerPage={handleChangeRowsPerPage} page={page} rowsPerPage={searchCriteria.numberOfONGs} />
       <ONGList onSaveONG={onSaveONG} ONGs={ONGs} />
     </Box>

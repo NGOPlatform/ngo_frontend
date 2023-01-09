@@ -1,6 +1,6 @@
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import {Colors} from '../Globals';
+import {Colors} from '../../Globals';
 import { Link } from 'react-router-dom';
 const ButtonStyle={
     'color':Colors.white,

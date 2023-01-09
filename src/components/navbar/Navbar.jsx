@@ -10,13 +10,14 @@ import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import logo from '../fox.png';
+import logo from '../../wwwroot/assets/fox.png'
 import ProfileMenu from './ProfileMenu';
 import AuthenticationGroup from './AuthenticationGroup'
-import { Colors } from '../Globals'
+import { Colors } from '../../Globals'
 import { Link } from 'react-router-dom';
 
-const pages = [{ label: 'Harta', path: '/' },
+const pages = [{ label: 'Acasa', path: '/home' },
+{ label: 'Harta', path: '/map' },
 { label: 'salvari', path: '/saved' },
 { label: 'subcriptii', path: '/subs' },
 { label: 'inbox', path: '/inbox' }];
@@ -25,7 +26,7 @@ const navBarStyle = {
   backgroundColor: Colors.dark
 };
 
-function ResponsiveAppBar({ auth, onLoggedIn }) {
+function ResponsiveAppBar({ userData, onLoggedIn }) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -134,7 +135,7 @@ function ResponsiveAppBar({ auth, onLoggedIn }) {
 
             ))}
           </Box>
-          {auth.authenticated ? <ProfileMenu auth={auth} onLoggedIn={onLoggedIn} /> : <AuthenticationGroup />}
+          { Object.keys(userData).length != 0 ? <ProfileMenu userData={userData} onLoggedIn={onLoggedIn} /> : <AuthenticationGroup />}
         </Toolbar>
       </Container>
     </AppBar>

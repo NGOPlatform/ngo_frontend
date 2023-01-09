@@ -1,41 +1,37 @@
 import { Box } from '@mui/system';
-import './App.css';
+import './wwwroot/css/App.css';
 import { useState, useEffect} from 'react';
 
-import Navbar from '../navbar/Navbar';
-import Home from './Home';
-import Footer from './Footer';
-import {About, Contact, Cookies, Gdpr, Inbox, Login, Register, Saved, Subscriptions, Terms, Profile, Dashboard } from '../Pages/PagesIndex';
+import Navbar from './components/navbar/Navbar';
+import Home from './Pages/Home';
+import Footer from './components/Footer';
+import {About, Contact, Cookies, Gdpr, Inbox, Login, Register, Saved, Subscriptions, Terms, Profile, Dashboard, MapPage } from './Pages/PagesIndex';
 import {
   Routes,
   Route,
 } from "react-router-dom";
+
 function App() {
-  const [auth, setAuth] = useState({authenticated:false, userData:''});
+  const [userData, setUserData] = useState({});
 
   useEffect(() => {
-    const localStorageAuth = JSON.parse(localStorage.getItem('userAuthenticated'));
-    if (localStorageAuth) {
-     setAuth(localStorageAuth);
+    const localStorageUserData = JSON.parse(localStorage.getItem('userData'));
+    if (localStorageUserData) {
+      setUserData(localStorageUserData);
     }
-    
   }, []);
 
-  const handleLoggedIn = (isAuth,userParsedToken)=>{
-    // console.log(value)
-    let newAuth={
-      authenticated: isAuth,
-      userData: userParsedToken
-    }
-    localStorage.setItem('userAuthenticated', JSON.stringify(newAuth))
-      setAuth(newAuth);
+  const handleLoggedIn = (userParsedToken)=>{
+    localStorage.setItem('userData', JSON.stringify(userParsedToken))
+    setUserData(userParsedToken);
   }
 
   return (
     <Box className="App">
-      <Navbar auth={auth} onLoggedIn={handleLoggedIn}/>
+      <Navbar userData={userData} onLoggedIn={handleLoggedIn}/>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/map" element={<MapPage />} />
         <Route path="/login" element={<Login onLoggedIn={handleLoggedIn}/>} />
         <Route path="/register" element={<Register />} />
         <Route path="/saved" element={<Saved />} />
@@ -46,7 +42,7 @@ function App() {
         <Route path="/terms" element={<Terms />} />
         <Route path="/gdpr" element={<Gdpr />} />
         <Route path="/cookies" element={<Cookies />} />
-        <Route path="/profile" element={<Profile auth={auth} />} />
+        <Route path="/profile" element={<Profile userData={userData} />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="*" element={<div>page not found</div>} />
       </Routes>

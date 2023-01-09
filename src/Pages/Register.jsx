@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { useTranslation } from "react-i18next";
 import { jwtDetails } from '../Globals';
 import * as jose from 'jose';
-import { validatePassword, validateEmail, valuesAreEqual, isValidRegisterData, isStringNullOrEmpty } from '../Validators'
+import { validatePassword, validateEmail, valuesAreEqual, isValidRegisterData, isStringNullOrEmpty } from '../services/Validators'
 import { useNavigate } from 'react-router-dom';
 const registerWrapperStyle = {
     display: 'flex',
