@@ -22,12 +22,12 @@ const ProfileItem = ({k,v})=>{
     )
 }
 
-const Profile = ({auth}) => {
+const Profile = ({userData}) => {
     return ( <Box sx={loginWrapperStyle}>
         <Box sx={loginBoxStyle}>
             <Typography>Contul meu</Typography>
             {
-           Object.entries(auth.userData).map(([k,v])=> 
+           Object.entries(userData).map(([k,v])=> 
                 <ProfileItem k={k} v={v}></ProfileItem>
            )
             }
