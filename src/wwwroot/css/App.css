@@ -27,3 +27,11 @@ a:visited {
   color: #fff;
   min-height: 40px;
 }
+
+.main{
+  min-height: calc(100vh - 48px - 40px);
+}
+
+.activeAnchor{
+  border-bottom: 1px solid white
+}

@@ -127,7 +127,7 @@ function ResponsiveAppBar({ userData, onLoggedIn }) {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Link to={page.path} key={page.label + '_longanchor'}>
+              <Link to={page.path} key={page.label + '_longanchor'} className={ page.path == window.location.pathname ? "activeAnchor" :""}>
                 <Button
                   size="small"
                   key={page.label + '_longbtn'}
