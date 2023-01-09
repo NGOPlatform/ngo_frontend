@@ -15,8 +15,8 @@ import ProfileMenu from './ProfileMenu';
 import AuthenticationGroup from './AuthenticationGroup'
 import { Colors } from '../../Globals'
 import { Link } from 'react-router-dom';
-
-const pages = [{ label: 'Acasa', path: '/home' },
+import { useNavigate } from "react-router-dom";
+const pages = [{ label: 'Acasa', path: '/' },
 { label: 'Harta', path: '/map' },
 { label: 'salvari', path: '/saved' },
 { label: 'subcriptii', path: '/subs' },
@@ -28,11 +28,15 @@ const navBarStyle = {
 
 function ResponsiveAppBar({ userData, onLoggedIn }) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-
+  const navigate = useNavigate();
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
 
+  const handleMobileRedirect = (url ) =>{
+      navigate(url);
+      handleCloseNavMenu();
+  }
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
@@ -40,9 +44,9 @@ function ResponsiveAppBar({ userData, onLoggedIn }) {
 
 
   return (
-    <AppBar position="static" style={navBarStyle}>
+    <AppBar  position="sticky" style={navBarStyle}>
       <Container maxWidth="xxl">
-        <Toolbar disableGutters>
+        <Toolbar disableGutters={true} variant="dense" >
           <IconButton sx={{ p: 0, display: { xs: 'none', md: 'flex' }, mr: 1 }}>
             <Avatar alt="foxy" src={logo} />
           </IconButton>
@@ -94,7 +98,7 @@ function ResponsiveAppBar({ userData, onLoggedIn }) {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page.label + '_long'} onClick={handleCloseNavMenu}>
+                <MenuItem key={page.label + '_long'} onClick={()=>{handleMobileRedirect(page.path)}} >
                   <Typography textAlign="center" >{page.label}</Typography>
                 </MenuItem>
               ))}
@@ -125,9 +129,10 @@ function ResponsiveAppBar({ userData, onLoggedIn }) {
             {pages.map((page) => (
               <Link to={page.path} key={page.label + '_longanchor'}>
                 <Button
+                  size="small"
                   key={page.label + '_longbtn'}
                   onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: 'white', display: 'block' }}
+                  sx={{  color: 'white', display: 'block' }}
                 >
                   {page.label}
                 </Button>

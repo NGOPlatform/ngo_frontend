@@ -1,15 +1,12 @@
 .App {
-  width:100vw;
-  height:100vh;
-  display:grid;
-  grid-template-rows: 70px calc(100vh - 70px - 50px) 50px;
-  background-color:#e0e0e0;
+  width: 100vw;
+  display: grid;
+  background-color: #e0e0e0;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif
-
 }
 
-body{
-  margin:0;
+body {
+  margin: 0;
 }
 
 a:link {
@@ -22,4 +19,11 @@ a:visited {
   text-decoration: inherit;
   color: inherit;
   /* cursor: auto; */
+}
+
+
+.appfooter {
+  background: #212529;
+  color: #fff;
+  min-height: 40px;
 }

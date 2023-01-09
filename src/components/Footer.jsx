@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
 
-        <Box sx={{ 'background': Colors.dark, 'color': Colors.white }}>
+        <div className="appfooter">
             <Stack
                 direction={{ xs: 'column', sm: 'row' }}
                 spacing={{ xs: 1, sm: 2, md: 4 }}
@@ -30,7 +30,7 @@ const Footer = () => {
                     </Link>
             </Stack>
 
-        </Box>);
+        </div>);
 }
 
 export default Footer;

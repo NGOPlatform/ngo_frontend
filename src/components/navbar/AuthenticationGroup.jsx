@@ -19,11 +19,13 @@ const AuthenticationGroup = () => {
         <Box sx={{ display: 'flex', gap: '10px' }}>
             <Link to="/login">
                 <Button 
+                size="small"
                 variant='outlined'
                 sx={ButtonStyle}>Autentificare</Button>
             </Link>
             <Link to="/register">
             <Button 
+            size="small"
             variant='outlined'
             sx={ButtonStyle}>Inregistrare</Button>
             </Link>
