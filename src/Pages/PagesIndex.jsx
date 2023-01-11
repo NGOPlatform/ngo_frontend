@@ -11,4 +11,5 @@ import Terms from './Terms';
 import Profile from './Profile';
 import Dashboard from './Dashboard';
 import MapPage from './Map';
-export {About, Contact, Cookies, Gdpr, Inbox, Login, Register, Saved, Subscriptions, Terms, Profile, Dashboard, MapPage};
+import Resources from './Resources'
+export {About, Contact, Cookies, Gdpr, Inbox, Login, Register, Saved, Subscriptions, Terms, Profile, Dashboard, MapPage,Resources};

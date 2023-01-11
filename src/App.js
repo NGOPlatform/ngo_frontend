@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import Navbar from './components/navbar/Navbar';
 import Home from './Pages/Home';
 import Footer from './components/Footer';
-import { About, Contact, Cookies, Gdpr, Inbox, Login, Register, Saved, Subscriptions, Terms, Profile, Dashboard, MapPage } from './Pages/PagesIndex';
+import { About, Contact, Cookies, Gdpr, Inbox, Login, Register, Saved, Subscriptions, Terms, Profile, Dashboard, MapPage, Resources} from './Pages/PagesIndex';
 import {
   Routes,
   Route,
@@ -29,7 +29,7 @@ function App() {
   return (
     <Box className="App">
       <Navbar userData={userData} onLoggedIn={handleLoggedIn} />
-      <div class="main">
+      <div className="main">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/map" element={<MapPage />} />
@@ -45,6 +45,7 @@ function App() {
           <Route path="/cookies" element={<Cookies />} />
           <Route path="/profile" element={<Profile userData={userData} />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/resources" element={<Resources />} />
           <Route path="*" element={<div>page not found</div>} />
         </Routes>
       </div>
