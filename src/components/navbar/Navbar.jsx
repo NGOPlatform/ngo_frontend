@@ -20,7 +20,8 @@ const pages = [{ label: 'Acasa', path: '/' },
 { label: 'Harta', path: '/map' },
 { label: 'salvari', path: '/saved' },
 { label: 'subcriptii', path: '/subs' },
-{ label: 'inbox', path: '/inbox' }];
+{ label: 'inbox', path: '/inbox' },
+{ label: 'resources', path: '/resources' }];
 const navBarStyle = {
   height: 'fit-content',
   backgroundColor: Colors.dark

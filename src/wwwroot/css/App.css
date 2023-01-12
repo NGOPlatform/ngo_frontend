@@ -1,7 +1,11 @@
+body{
+  background-image:url("../assets//Hexagon.svg");
+}
+
 .App {
   width: 100vw;
   display: grid;
-  background-color: #e0e0e0;
+  /* background-color: #e0e0e0; */
   font-family: "Roboto", "Helvetica", "Arial", sans-serif
 }
 
