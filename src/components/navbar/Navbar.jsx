@@ -18,8 +18,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 const pages = [{ label: 'Acasa', path: '/' },
 { label: 'Harta', path: '/map' },
-{ label: 'salvari', path: '/saved' },
-{ label: 'subcriptii', path: '/subs' },
+{ label: 'salvarile mele', path: '/saved' },
 { label: 'news', path: '/news' },
 { label: 'resources', path: '/resources' }];
 const navBarStyle = {

@@ -20,7 +20,7 @@ export const ONGCard = ({  ONG, onSaveONG }) => {
                 <IconButton sx={{padding:'auto 0'}} onClick={()=>{onSaveONG(ONG)}}>
                     <Favorite sx={{color: ONG.isSaved?'#fc5185':''}} />
                 </IconButton>
-                </Box >
+            </Box >
                 <Box color={'grey.500'} display={'flex'} alignItems={'center'} mb={1}>
                     <LocationOn sx={{fontSize: '18px', marginRight: '4px'}}/>
                     <span sx={{color: 'rgb(158, 158, 158)',

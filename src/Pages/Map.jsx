@@ -28,7 +28,7 @@ const MapPage = () => {
     //     // console.log('saving is commented out right now')
     // }
     return (
-        <Container maxWidth="lg" sx={{ marginTop: '40px',marginBottom:'40px', 
+        <Container maxWidth="xl" sx={{ marginTop: '40px',marginBottom:'40px', 
         display:'grid', gridTemplateColumns:'3fr 5fr', minHeight:'calc(100vh - 48px - 120px)'}}>
             {(!loading && ONGs && ONGs.length > 0) ?
              <MapComponent ONGs={ONGs}  searchCriteria={searchCriteria} setSearchCriteria={setSearchCriteria}/> : <Loading msg="Se încarcă harta" />}

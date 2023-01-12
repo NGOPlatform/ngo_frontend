@@ -1,8 +1,5 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-
-
-export function useONGs(searchCriteria) {
   const ONGsFooData = [
     {
         "name": "FEDERATIA CARITAS A DIACEZEI TIMISOARA",
@@ -79,6 +76,9 @@ export function useONGs(searchCriteria) {
         "description":"AJUTORAREA CELOR NEVOIASI CU MEDICAMENTE, ALIMENTE, IMBRACAMINTE SI ALTE BUNURI NECESARE EXISTENTEI."
     }
 ]
+
+export function useONGs(searchCriteria) {
+
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -101,6 +101,6 @@ export function useONGs(searchCriteria) {
     data,
     loading: false,
   };
-
-
 } 
+
+export {ONGsFooData};
