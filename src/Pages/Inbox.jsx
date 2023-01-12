@@ -7,16 +7,18 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
+import {Container} from '@mui/system';
 import { UseInboxData } from '../customHooks/InboxData.jsx';
 
 const Inbox = () => {
-    const InboxData = UseInboxData();
+    const {data: InboxData} = UseInboxData();
     return (
-        <Box >
-
-            <List sx={{position:'inherit', width: '100%',height:'100%', overflow:'auto', maxWidth: 360, bgcolor: 'background.paper' }}>
+      <Container maxWidth="lg" sx={{display:'grid', gridTemplateColumns:'1fr 2fr', marginTop: '40px', marginBottom:'40px', backgroundColor: '#ffffff59', height:'calc(100vh - 48px - 120px)'}}>
+        <Box sx={{height:'100%'}}>
+            <List sx={{position:'inherit', width: '100%',height:'100%',padding:'0', height:'100%',
+             overflow:'auto', maxWidth: 360, bgcolor: 'background.paper' }}>
                 {InboxData.map((el, i) =>
-                    <ListItem key={el.ongName + i} alignItems="flex-start">
+                    <><ListItem key={el.ongName + i} alignItems="flex-start">
                         <ListItemAvatar>
                             <Avatar alt={el.ongName} src="/static/images/avatar/1.jpg" />
                         </ListItemAvatar>
@@ -28,22 +30,26 @@ const Inbox = () => {
                                         sx={{ display: 'inline' }}
                                         component="span"
                                         variant="body2"
-                                        color="text.primary"
+                                        color="text.secondary"
                                     >
-
+                {el.shortDesc}
                                     </Typography>
-                                    {el.shortDesc}
+                                   
                                 </React.Fragment>
                             }
                         />
                     </ListItem>
+                <Divider variant="inset" component="li" />
+                    </>
                 )}
 
-                <Divider variant="inset" component="li" />
 
             </List>
         </Box>
-
+        <Box>
+            sda
+        </Box>
+        </Container>
     );
 }
 
