@@ -1,6 +1,6 @@
 import { Box } from '@mui/system';
 import TextField from '@mui/material/TextField';
-import { Button, Typography } from '@mui/material';
+import { Button, Typography, Container } from '@mui/material';
 import { useState } from 'react';
 import { useTranslation } from "react-i18next";
 import { jwtDetails } from '../Globals';
@@ -9,20 +9,17 @@ import { validatePassword, validateEmail, valuesAreEqual, isValidRegisterData, i
 import { useNavigate } from 'react-router-dom';
 const registerWrapperStyle = {
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'center', 
     alignItems: 'center',
+    height:'100%'
 
 }
 const registerBoxStyle = {
     borderRadius: '12px',
-    background: '#e0e0e0',
-    // boxShadow: '7px 7px 19px #d0d0d0, -7px -7px 19px #f0f0f0',
-    border:'1px solid rgba(0, 0, 0, 0.23)',
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
     flexDirection: 'column',
     alignItems: 'center',
-    p: '20px',
     boxSizing: 'border-box',
     gap: '0 20px'
 }
@@ -70,9 +67,10 @@ const Register = () => {
         // if (localStorage.getItem('users') != null)
         //     users = JSON.parse(localStorage.getItem('users'));
         // else users = {};
-
+        
         // users[userData.email] = jwt;
         // localStorage.setItem('users', JSON.stringify(users));
+        //TO DO: save user into db
         navigate('/login');
     }
 
@@ -103,8 +101,11 @@ const Register = () => {
         if (l === 'lastName') return !isStringNullOrEmpty(lastName);
     }
 
-    return (<Box sx={registerWrapperStyle}>
-        <Box sx={registerBoxStyle}>
+    return (
+        <Container maxWidth="md" sx={{ marginTop: '40px', marginBottom:'40px',
+        backgroundColor: '#ffffff87', height:'calc(100vh - 48px - 120px)', borderRadius:'25px'}}>
+    <div style={registerWrapperStyle}>
+        <div style={registerBoxStyle}>
             <Typography sx={{ gridColumn: '1 / 3' }}>{t("register_title")}</Typography>
             {inputs.map(l =>
                 <TextField
@@ -118,12 +119,13 @@ const Register = () => {
                     value={l.value} />
             )}
             <Button
-                variant='outlined'
+                variant="contained"
                 sx={{ marginTop: '10px', gridColumn: '1 / 3',height:'50px' }}
                 onClick={handleRegister}
             > {t('register_btn')}</Button>
-        </Box>
-    </Box>);
+        </div>
+    </div>
+    </Container>);
 }
 
 export default Register;

@@ -18,14 +18,14 @@ const PrimarybtnStyle = { borderRadius: 30, backgroundColor: '#6c63ff', padding:
 
 const Home = () => {
     return (
-        <>
+      <Container maxWidth="lg" sx={{ marginTop: '40px', marginBottom:'40px', paddingTop: '40px', backgroundColor: '#ffffff59', minHeight:'calc(100vh - 48px - 120px)'}}>
             <FirstPanel />
             <SpaceDivider />
             <WhatIs />
             <SpaceDivider />
             <WhyONGFinder />
             <SpaceDivider />
-        </>
+        </Container>
 
     );
 }

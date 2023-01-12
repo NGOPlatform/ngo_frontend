@@ -30,7 +30,6 @@ function App() {
     <Box className="App">
       <Navbar userData={userData} onLoggedIn={handleLoggedIn} />
       <div className="main">
-      <Container maxWidth="lg" sx={{ marginTop: '40px', marginBottom:'40px', paddingTop: '40px', backgroundColor: '#ffffff59', minHeight:'calc(100vh - 48px - 120px)'}}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/map" element={<MapPage />} />
@@ -49,7 +48,7 @@ function App() {
           <Route path="/resources" element={<Resources />} />
           <Route path="*" element={<div>page not found</div>} />
         </Routes>
-        </Container>
+      
       </div>
       <Footer />
     </Box>
