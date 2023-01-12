@@ -58,21 +58,21 @@ const Register = () => {
         if (!isValidRegisterData(registerData)) return;
         // console.log('flag2')
         Object.assign(userData, registerData);
-        const secret = new TextEncoder().encode(
-            jwtDetails.secret, //32 characters
-        )
-        const jwt = await new jose.EncryptJWT(userData)
-            .setProtectedHeader({ alg: jwtDetails.alg, enc: jwtDetails.enc })
-            .setIssuedAt()
-            .setExpirationTime(jwtDetails.expirationTime)
-            .encrypt(secret);
-        let users;
-        if (localStorage.getItem('users') != null)
-            users = JSON.parse(localStorage.getItem('users'));
-        else users = {};
+        // const secret = new TextEncoder().encode(
+        //     jwtDetails.secret, //32 characters
+        // )
+        // const jwt = await new jose.EncryptJWT(userData)
+        //     .setProtectedHeader({ alg: jwtDetails.alg, enc: jwtDetails.enc })
+        //     .setIssuedAt()
+        //     .setExpirationTime(jwtDetails.expirationTime)
+        //     .encrypt(secret);
+        // let users;
+        // if (localStorage.getItem('users') != null)
+        //     users = JSON.parse(localStorage.getItem('users'));
+        // else users = {};
 
-        users[userData.email] = jwt;
-        localStorage.setItem('users', JSON.stringify(users));
+        // users[userData.email] = jwt;
+        // localStorage.setItem('users', JSON.stringify(users));
         navigate('/login');
     }
 
