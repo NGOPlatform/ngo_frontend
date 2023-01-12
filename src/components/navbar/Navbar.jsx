@@ -35,9 +35,9 @@ function ResponsiveAppBar({ userData, onLoggedIn }) {
     setAnchorElNav(event.currentTarget);
   };
 
-  const handleMobileRedirect = (url ) =>{
-      navigate(url);
-      handleCloseNavMenu();
+  const handleMobileRedirect = (url) => {
+    navigate(url);
+    handleCloseNavMenu();
   }
 
   const handleCloseNavMenu = () => {
@@ -46,7 +46,7 @@ function ResponsiveAppBar({ userData, onLoggedIn }) {
 
 
   return (
-    <AppBar  position="sticky" style={navBarStyle}>
+    <AppBar position="sticky" style={navBarStyle}>
       <Container maxWidth="xxl">
         <Toolbar disableGutters={true} variant="dense" >
           <IconButton sx={{ p: 0, display: { xs: 'none', md: 'flex' }, mr: 1 }}>
@@ -69,8 +69,17 @@ function ResponsiveAppBar({ userData, onLoggedIn }) {
           >
             {/* Foxy */}
           </Typography>
-     
+
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+             <IconButton
+              size="large"
+              aria-label="show 17 new notifications"
+              color="inherit"
+            >
+              <Badge badgeContent={17} color="error">
+                <NotificationsIcon />
+              </Badge>
+            </IconButton>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -100,10 +109,22 @@ function ResponsiveAppBar({ userData, onLoggedIn }) {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page.label + '_long'} onClick={()=>{handleMobileRedirect(page.path)}} >
+                <MenuItem key={page.label + '_long'} onClick={() => { handleMobileRedirect(page.path) }} >
                   <Typography textAlign="center" >{page.label}</Typography>
                 </MenuItem>
               ))}
+              <MenuItem>
+                <IconButton
+                  size="large"
+                  aria-label="show 17 new notifications"
+                  color="inherit"
+                >
+                  <Badge badgeContent={17} color="error">
+                    <NotificationsIcon />
+                  </Badge>
+                </IconButton>
+                <p>Notifications</p>
+              </MenuItem>
             </Menu>
           </Box>
           <IconButton sx={{ p: 0, display: { xs: 'flex', md: 'none' }, mr: 1 }}>
@@ -129,12 +150,12 @@ function ResponsiveAppBar({ userData, onLoggedIn }) {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Link to={page.path} key={page.label + '_longanchor'} className={ page.path == window.location.pathname ? "activeAnchor" :""}>
+              <Link to={page.path} key={page.label + '_longanchor'} className={page.path == window.location.pathname ? "activeAnchor" : ""}>
                 <Button
                   size="small"
                   key={page.label + '_longbtn'}
                   onClick={handleCloseNavMenu}
-                  sx={{  color: 'white', display: 'block' }}
+                  sx={{ color: 'white', display: 'block' }}
                 >
                   {page.label}
                 </Button>
@@ -142,7 +163,7 @@ function ResponsiveAppBar({ userData, onLoggedIn }) {
 
             ))}
           </Box>
-          { Object.keys(userData).length != 0 ? <ProfileMenu userData={userData} onLoggedIn={onLoggedIn} /> : <AuthenticationGroup />}
+          {Object.keys(userData).length != 0 ? <ProfileMenu userData={userData} onLoggedIn={onLoggedIn} /> : <AuthenticationGroup />}
         </Toolbar>
       </Container>
     </AppBar>
