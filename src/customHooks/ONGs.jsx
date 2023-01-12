@@ -99,7 +99,7 @@ export function useONGs(searchCriteria) {
  
   return {
     data,
-    loading,
+    loading: false,
   };
 
 

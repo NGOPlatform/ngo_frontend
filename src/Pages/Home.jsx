@@ -114,7 +114,7 @@ const WhatIs = () => {
 const WhatIsCard = ({ image, title, description, redirectBtn }) => {
     return (<div style={{
         display: 'flex', flexDirection: 'column', gap: '5px', alignItems: 'flex-start', justifyContent: 'space-between'
-        , padding: '20px', backgroundColor: '#a4a0ee', color: '#303a52', borderRadius: '15px'
+        , padding: '20px',border: '2px solid rgb(164, 160, 238)',  color: '#303a52', borderRadius: '15px'
     }} >
         <img src={image} style={{ width: '100%', height: '150px', backgroundColor: '#a4a0ee', borderRadius: '20px' }} />
         <Typography gutterBottom variant="h5" component="div">{title}</Typography>

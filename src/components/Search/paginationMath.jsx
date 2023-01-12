@@ -3,5 +3,7 @@ export function getStartIndex (page, rowsPerPage) {
   }
 
 export function getEndIndex (page, rowsPerPage, collectionCount) {
-    return (page + 1) * rowsPerPage <  collectionCount ? (page + 1) * rowsPerPage : collectionCount;
+  let endIndex = (page + 1) * rowsPerPage <  collectionCount ? (page + 1) * rowsPerPage : collectionCount;
+  console.log(endIndex)
+    return endIndex;
   }

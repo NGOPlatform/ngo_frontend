@@ -25,9 +25,7 @@ export default function ONGList({ONGs, onSaveONG}) {
         setIsSubscribed(true);
     }
     return (
-        <List sx={{ width: '100%', maxHeight:'100%', height:ONGs.length !==0 ? 'auto' : '100%', backgroundColor: 'background.paper', overflow:'auto',mb:2}}>
-
-            
+        <List sx={{ width: '100%', maxHeight:'100%', height:ONGs.length !==0 ? 'auto' : '100%', overflow:'auto',mb:2}}>
             {
             
             ONGs.length !==0 ?

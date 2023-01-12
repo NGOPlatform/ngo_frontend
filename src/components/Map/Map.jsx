@@ -34,7 +34,7 @@ const ONGsMap = ({ center, zoom, children }) => {
   },[center]);
         
         return <>
-        <div ref={ref} id="map" style={{ height: '100%', width: '100%' }} />
+        <div ref={ref} id="map" style={{ height: '100%', width: '100%', borderRadius:'0 20px 20px 0' }} />
         {React.Children.map(children, (child) => {
           if (React.isValidElement(child)) {
             // set the map prop on the child component
