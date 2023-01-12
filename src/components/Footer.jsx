@@ -1,35 +1,34 @@
 import { Box } from '@mui/system';
 import { Colors } from '../Globals';
 import Stack from '@mui/material/Stack';
-import { Typography } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
-
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 const Footer = () => {
     return (
 
         <div className="appfooter">
-            <Stack
-                direction={{ xs: 'column', sm: 'row' }}
-                spacing={{ xs: 1, sm: 2, md: 4 }}
-                sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}
-            >
+                <Container style={{display:'flex',justifyContent:'space-around', padding:'20px'}}>
+                    <div style={{display:'flex', flexDirection:'column', gap:'2px'}}>
                     <Link to="/terms">
-                        <Typography>Termeni si conditii</Typography>
+                        <Typography sx={{display:'flex'}}><ChevronRightIcon/>Termeni si conditii</Typography>
                     </Link>
                     <Link to="/gdpr">
-                        <Typography>Prelucrarea datelor cu caracter personal</Typography>
+                        <Typography sx={{display:'flex'}}><ChevronRightIcon/>Prelucrarea datelor cu caracter personal</Typography>
                     </Link>
                     <Link to="/cookies">
-                        <Typography>Politica de utilizare a cookie-urilor</Typography>
+                        <Typography sx={{display:'flex'}}><ChevronRightIcon/>Politica de utilizare a cookie-urilor</Typography>
                     </Link>
+                    </div>
+                    <div style={{display:'flex', flexDirection:'column', gap:'2px'}}>
                     <Link to="/contact">
-                        <Typography>Contact</Typography>
+                        <Typography sx={{display:'flex'}}><ChevronRightIcon/>Contact</Typography >
                     </Link>
                     <Link to="/about">  
-                        <Typography>Despre</Typography>
+                        <Typography sx={{display:'flex'}}><ChevronRightIcon/>Despre</Typography>
                     </Link>
-            </Stack>
-
+                    </div>
+                    </Container>
         </div>);
 }
 
