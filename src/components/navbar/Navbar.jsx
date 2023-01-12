@@ -16,6 +16,8 @@ import AuthenticationGroup from './AuthenticationGroup'
 import { Colors } from '../../Globals'
 import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
+import { Badge } from '@mui/icons-material';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 const pages = [{ label: 'Acasa', path: '/' },
 { label: 'Harta', path: '/map' },
 { label: 'salvarile mele', path: '/saved' },
@@ -67,7 +69,7 @@ function ResponsiveAppBar({ userData, onLoggedIn }) {
           >
             {/* Foxy */}
           </Typography>
-
+     
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"

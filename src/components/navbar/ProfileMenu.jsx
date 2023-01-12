@@ -27,7 +27,7 @@ function ProfileMenu({ userData, onLoggedIn }) {
   };
 
   const handleClickDisconect = (setting) => {
-    onLoggedIn(false, {});
+    onLoggedIn( {});
     navigate('/login');
     CloseUserMenu();
   };

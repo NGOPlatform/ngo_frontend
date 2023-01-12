@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import Navbar from './components/navbar/Navbar';
 import Home from './Pages/Home';
 import Footer from './components/Footer';
-import { About, Contact, Cookies, Gdpr, Inbox, Login, Register, Saved, Subscriptions, Terms, Profile, Dashboard, MapPage, Resources} from './Pages/PagesIndex';
+import { About, Contact, Cookies, Gdpr, Inbox, Login, Register, Saved, Terms, Profile, Dashboard, MapPage, Resources} from './Pages/PagesIndex';
 import {
   Routes,
   Route,
@@ -22,9 +22,9 @@ function App() {
     }
   }, []);
 
-  const handleLoggedIn = (userParsedToken) => {
-    localStorage.setItem('userData', JSON.stringify(userParsedToken))
-    setUserData(userParsedToken);
+  const handleLoggedIn = (userData) => {
+    localStorage.setItem('userData', JSON.stringify(userData))
+    setUserData(userData);
   }
 
   return (
@@ -37,7 +37,6 @@ function App() {
           <Route path="/login" element={<Login onLoggedIn={handleLoggedIn} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/saved" element={<Saved />} />
-          <Route path="/subs" element={<Subscriptions />} />
           <Route path="/news" element={<News />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />

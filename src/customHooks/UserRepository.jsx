@@ -2,12 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 
-export function UseLogin({ email, password }) {
-
-
-    const [data, setData] = useState({});
-    const [loading, setLoading] = useState(true);
-    useEffect(() => {
+export function getUser(email, password) {
         const foundUser = {
             "username": "gandolh",
             "email": "cristian.gusatu02@e-uvt.ro",
@@ -15,10 +10,8 @@ export function UseLogin({ email, password }) {
             "subscriptions": "timisoara haine copii, arad bere",
             "favorites": "1,2,3"
         }
-        setData(foundUser);
-    }, [email, password]);
     return {
-        data,
-        loading
+        data : foundUser,
+        loading : false
     };
 } 

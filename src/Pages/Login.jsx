@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { jwtDetails } from '../Globals';
 import * as jose from 'jose';
 import { useNavigate } from 'react-router-dom';
-import { UseLogin } from '../customHooks/UseUser';
+import { getUser, UseLogin } from '../customHooks/UserRepository';
 const loginWrapperStyle = {
     display: 'flex',
     justifyContent: 'center',
@@ -52,11 +52,11 @@ const Login = ({onLoggedIn}) => {
         // const jwt = currentUser;
         // const { payload } = await jose.jwtDecrypt(jwt, secret);
 
-        const foundUser = UseLogin('username','password');
+        const foundUser = getUser('username','password');
         // console.log(payload);
         // if(payload.password === loginData.password){
         //     delete payload.password;
-            onLoggedIn(true, foundUser );
+            onLoggedIn(foundUser );
         // }
         navigate('/');
 
