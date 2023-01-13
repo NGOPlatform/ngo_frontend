@@ -36,7 +36,7 @@ const FirstPanel = () => {
         <Grid container>
             <Grid item xs={6} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', gap: '20px' }}>
                 <Typography variant="h4" >
-                    Platforma ta pentru a iti ajuta comunitatea, prin intermediul <Typography variant="h4" nowrap>ONG-urilor</Typography>
+                    Platforma ta pentru a iti ajuta comunitatea, prin intermediul ONG-urilor
                 </Typography>
                 <Link to="/map" style={PrimarybtnStyle}>Vezi harta</Link>
             </Grid>

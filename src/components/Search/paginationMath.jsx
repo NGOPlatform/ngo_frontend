@@ -4,6 +4,6 @@ export function getStartIndex (page, rowsPerPage) {
 
 export function getEndIndex (page, rowsPerPage, collectionCount) {
   let endIndex = (page + 1) * rowsPerPage <  collectionCount ? (page + 1) * rowsPerPage : collectionCount;
-  console.log(endIndex)
+  // console.log(endIndex)
     return endIndex;
   }

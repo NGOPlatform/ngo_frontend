@@ -9,7 +9,7 @@ const Saved = () => {
         data: savedOngs,
         loading,
     } = UseSavedOngs();
-    console.log(savedOngs);
+    // console.log(savedOngs);
     return (
         <>
         <Container maxWidth="lg" sx={{

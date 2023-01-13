@@ -76,9 +76,9 @@ function ResponsiveAppBar({ userData, onLoggedIn }) {
               aria-label="show 17 new notifications"
               color="inherit"
             >
-              <Badge badgeContent={17} color="error">
+              {/* <Badge badgeContent={17} color="error">
                 <NotificationsIcon />
-              </Badge>
+              </Badge> */}
             </IconButton>
             <IconButton
               size="large"
@@ -119,9 +119,9 @@ function ResponsiveAppBar({ userData, onLoggedIn }) {
                   aria-label="show 17 new notifications"
                   color="inherit"
                 >
-                  <Badge badgeContent={17} color="error">
+                  {/* <Badge badgeContent={17} color="error">
                     <NotificationsIcon />
-                  </Badge>
+                  </Badge> */}
                 </IconButton>
                 <p>Notifications</p>
               </MenuItem>

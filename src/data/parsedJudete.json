@@ -1,0 +1,254 @@
+[
+  {
+    "name": "Alba",
+    "lat": 45.909217877094974,
+    "long": 22.76536312849162,
+    "label": "Alba"
+  },
+  {
+    "name": "Arad",
+    "lat": 45.957597173144876,
+    "long": 21.46643109540636,
+    "label": "Arad"
+  },
+  {
+    "name": "Argeş",
+    "lat": 44.43418803418803,
+    "long": 24.278632478632478,
+    "label": "Argeş"
+  },
+  {
+    "name": "Bacău",
+    "lat": 46,
+    "long": 26.46078431372549,
+    "label": "Bacău"
+  },
+  {
+    "name": "Bihor",
+    "lat": 46.414847161572055,
+    "long": 21.82751091703057,
+    "label": "Bihor"
+  },
+  {
+    "name": "Bistriţa-Năsăud",
+    "lat": 46.75502008032129,
+    "long": 23.983935742971887,
+    "label": "Bistriţa-Năsăud"
+  },
+  {
+    "name": "Botoşani",
+    "lat": 47.25142857142857,
+    "long": 26.242857142857144,
+    "label": "Botoşani"
+  },
+  {
+    "name": "Brăila",
+    "lat": 44.65277777777778,
+    "long": 27.041666666666668,
+    "label": "Brăila"
+  },
+  {
+    "name": "Braşov",
+    "lat": 45.13939393939394,
+    "long": 24.727272727272727,
+    "label": "Braşov"
+  },
+  {
+    "name": "Bucureşti",
+    "lat": 44,
+    "long": 26,
+    "label": "Bucureşti"
+  },
+  {
+    "name": "Buzău",
+    "lat": 44.89754098360656,
+    "long": 26.137295081967213,
+    "label": "Buzău"
+  },
+  {
+    "name": "Călăraşi",
+    "lat": 44,
+    "long": 26.296969696969697,
+    "label": "Călăraşi"
+  },
+  {
+    "name": "Caraş-Severin",
+    "lat": 44.666666666666664,
+    "long": 21.49514563106796,
+    "label": "Caraş-Severin"
+  },
+  {
+    "name": "Cluj",
+    "lat": 46.24654377880184,
+    "long": 23.06451612903226,
+    "label": "Cluj"
+  },
+  {
+    "name": "Constanţa",
+    "lat": 43.75233644859813,
+    "long": 27.77570093457944,
+    "label": "Constanţa"
+  },
+  {
+    "name": "Covasna",
+    "lat": 45.3046875,
+    "long": 25.4609375,
+    "label": "Covasna"
+  },
+  {
+    "name": "Dâmboviţa",
+    "lat": 44.29946524064171,
+    "long": 25,
+    "label": "Dâmboviţa"
+  },
+  {
+    "name": "Dolj",
+    "lat": 43.84615384615385,
+    "long": 23.107692307692307,
+    "label": "Dolj"
+  },
+  {
+    "name": "Galaţi",
+    "lat": 45.28804347826087,
+    "long": 27.130434782608695,
+    "label": "Galaţi"
+  },
+  {
+    "name": "Giurgiu",
+    "lat": 43.84117647058824,
+    "long": 25.223529411764705,
+    "label": "Giurgiu"
+  },
+  {
+    "name": "Gorj",
+    "lat": 44.3632183908046,
+    "long": 22.887356321839082,
+    "label": "Gorj"
+  },
+  {
+    "name": "Harghita",
+    "lat": 46.00757575757576,
+    "long": 24.99621212121212,
+    "label": "Harghita"
+  },
+  {
+    "name": "Hunedoara",
+    "lat": 45.26694045174538,
+    "long": 22.295687885010267,
+    "label": "Hunedoara"
+  },
+  {
+    "name": "Ialomiţa",
+    "lat": 44,
+    "long": 26.532374100719423,
+    "label": "Ialomiţa"
+  },
+  {
+    "name": "Iaşi",
+    "lat": 46.815850815850816,
+    "long": 26.752913752913752,
+    "label": "Iaşi"
+  },
+  {
+    "name": "Ilfov",
+    "lat": 44,
+    "long": 25.778846153846153,
+    "label": "Ilfov"
+  },
+  {
+    "name": "Maramureş",
+    "lat": 47.00404858299595,
+    "long": 23.161943319838056,
+    "label": "Maramureş"
+  },
+  {
+    "name": "Mehedinţi",
+    "lat": 44.02513966480447,
+    "long": 22.29608938547486,
+    "label": "Mehedinţi"
+  },
+  {
+    "name": "Mureş",
+    "lat": 46,
+    "long": 24.036679536679536,
+    "label": "Mureş"
+  },
+  {
+    "name": "Neamţ",
+    "lat": 46.43333333333333,
+    "long": 26.02777777777778,
+    "label": "Neamţ"
+  },
+  {
+    "name": "Olt",
+    "lat": 43.876606683804624,
+    "long": 23.96401028277635,
+    "label": "Olt"
+  },
+  {
+    "name": "Prahova",
+    "lat": 44.63755458515284,
+    "long": 25.6353711790393,
+    "label": "Prahova"
+  },
+  {
+    "name": "Sălaj",
+    "lat": 46.916955017301035,
+    "long": 22.67128027681661,
+    "label": "Sălaj"
+  },
+  {
+    "name": "Satu Mare",
+    "lat": 47.042735042735046,
+    "long": 22.397435897435898,
+    "label": "Satu Mare"
+  },
+  {
+    "name": "Sibiu",
+    "lat": 45.36702127659574,
+    "long": 23.840425531914892,
+    "label": "Sibiu"
+  },
+  {
+    "name": "Suceava",
+    "lat": 47,
+    "long": 25.555825242718445,
+    "label": "Suceava"
+  },
+  {
+    "name": "Teleorman",
+    "lat": 43.652542372881356,
+    "long": 24.73728813559322,
+    "label": "Teleorman"
+  },
+  {
+    "name": "Timiş",
+    "lat": 45.05230769230769,
+    "long": 21.05846153846154,
+    "label": "Timiş"
+  },
+  {
+    "name": "Tulcea",
+    "lat": 44.60992907801418,
+    "long": 28.19858156028369,
+    "label": "Tulcea"
+  },
+  {
+    "name": "Vâlcea",
+    "lat": 44.443349753694584,
+    "long": 23.753694581280786,
+    "label": "Vâlcea"
+  },
+  {
+    "name": "Vaslui",
+    "lat": 46,
+    "long": 27.129032258064516,
+    "label": "Vaslui"
+  },
+  {
+    "name": "Vrancea",
+    "lat": 45.153179190751445,
+    "long": 26.57514450867052,
+    "label": "Vrancea"
+  }
+]

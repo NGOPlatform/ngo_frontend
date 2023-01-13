@@ -9,7 +9,7 @@ export function UseInboxData(subsKeyWords){
         //search for keywords in ongs after specified date
         //just parse it
         // haine copii 1-12-2022
-        console.log(loremIpsum())
+        // console.log(loremIpsum())
         const fooInboxData = [
             {
             "title": MesajGeneric,

@@ -40,8 +40,8 @@ export const ONGCard = ({  ONG, onSaveONG }) => {
                         overflow: 'hidden',
                         textOverflow: 'ellipsis',
                         display: '-webkit-box',
-                        '-webkit-box-orient': 'vertical',
-                        '-webkit-line-clamp': '2',
+                        WebkitBoxOrient: 'vertical',
+                        WebkitLineClamp: '2',
                         whiteSpace: 'pre-wrap',
                     }}>
                     {capitalizeFirstLetter(ONG.description)}

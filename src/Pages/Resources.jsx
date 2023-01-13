@@ -22,12 +22,12 @@ const ResourceCategory = ({ r, category }) => {
             newImages = [];
             r.keys().forEach((item, index) => {
 
-                console.log(item)
+                // console.log(item)
                 newImages.push({ name: item.replace("./", ""), data: r(item) });
             });
             setImages(newImages)
         }
-        console.log((category == "undraw" ? "../wwwroot/assets" : `../wwwroot/assets/${category}`));
+        // console.log((category == "undraw" ? "../wwwroot/assets" : `../wwwroot/assets/${category}`));
         importAll(r);
     }, [])
 
