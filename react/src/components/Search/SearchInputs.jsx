@@ -8,6 +8,7 @@ import parse from 'autosuggest-highlight/parse';
 import match from 'autosuggest-highlight/match';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import TagsInput from './TagsInput';
 const SearchInputs = ({ searchCriteria, onSetSearchCriteria }) => {
     const {
         judete: judete,
@@ -17,11 +18,13 @@ const SearchInputs = ({ searchCriteria, onSetSearchCriteria }) => {
     } = UseLocationAutocomplete();
 
     const [inputtedData, setInputtedData] = useState({
-        "county": "",
+        "county": "Alba",
         "city": "",
         "needs": ""
     })
-
+    useEffect(() => {
+        setCurrentJudet(inputtedData.county);
+    }, [inputtedData.county])
 
     return (<Box
         component="form"
@@ -42,9 +45,10 @@ const SearchInputs = ({ searchCriteria, onSetSearchCriteria }) => {
                     localitati={localitati} />
             </Grid>
         </Grid>
-        <TextField
-            // onChange={(e) => { onsetdescription(e.target.value) }}
-            fullWidth value={searchCriteria.description} variant="outlined" size="small" margin="dense" label="Nevoi" />
+            <SearchNevoi  
+                inputtedData={inputtedData}
+                setInputtedData={setInputtedData}
+            />
     </Box>);
 }
 
@@ -58,9 +62,9 @@ const SearchJudet = ({ judete, inputtedData, setInputtedData }) => {
             disablePortal
             options={judete}
             sx={{ marginTop: '8px' }}
-            inputValue={inputtedData.county}
-            onInputChange={(event, newInputValue) => {
-                setInputtedData({ ...inputtedData, county: newInputValue });
+            value={inputtedData.county}
+            onChange={(event, newInputValue) => {
+                setInputtedData({ ...inputtedData, county: newInputValue.label });
             }}
             renderInput={(params) => <TextField  {...params} label="Judet" />}
         />
@@ -70,7 +74,8 @@ const SearchJudet = ({ judete, inputtedData, setInputtedData }) => {
 
 const SearchLocalitate = ({ localitati, inputtedData, setInputtedData }) => {
     const filterOptions = createFilterOptions({
-        matchFrom: 'any'
+        matchFrom: 'any',
+        limit: 5
     });
 
     return (<Autocomplete
@@ -79,9 +84,9 @@ const SearchLocalitate = ({ localitati, inputtedData, setInputtedData }) => {
         filterOptions={filterOptions}
         options={localitati.sort((a, b) => a.label.toUpperCase().localeCompare(b.label.toUpperCase()))}
         sx={{ marginTop: '8px' }}
-        inputValue={inputtedData.city}
-        onInputChange={(event, newInputValue) => {
-            setInputtedData({ ...inputtedData, city: newInputValue });
+        value={inputtedData.city}
+        onChange={(event, newInputValue) => {
+            setInputtedData({ ...inputtedData, city: newInputValue.label });
         }}
         renderInput={(params) => <TextField  {...params} label="localitate" />}
         renderOption={(props, option, { inputValue }) => {
@@ -109,7 +114,25 @@ const SearchLocalitate = ({ localitati, inputtedData, setInputtedData }) => {
 
 
 
-// const SearchNevoi = ({}){
+const SearchNevoi = ({ inputtedData, setInputtedData }) => {
+    function handleSelecetedTags(items) {
+        console.log(items);
+      }
+    return (
+        // <TextField
+        //     onChange={(e) => { setInputtedData({ ...inputtedData, needs: e.target.value }); }}
+        //     fullWidth value={inputtedData.needs} variant="outlined" size="small" margin="dense" label="Nevoi" /> 
+        <TagsInput
+        selectedTags={handleSelecetedTags}
+        fullWidth
+        variant="outlined"
+        id="tags"
+        name="tags"
+        placeholder="add Tags"
+        label="tags"
+      />
+    )
 
-// }
+}
+
 export default SearchInputs;

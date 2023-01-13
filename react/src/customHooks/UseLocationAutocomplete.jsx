@@ -2,37 +2,38 @@ import { useState,useEffect } from "react";
 import axios from "axios";
 const UseLocationAutocomplete = () => {
   const [judete, setJudete] = useState([]);
-  const localitatiJson = [];
-  useEffect(()=>{
-    const fetchJudete = async () => {
-      try {
-        const url = `http://localhost:3000/judete`
-        const { data: response } = await axios.get(url);
-        return response;
-      } catch (error) {
-        console.error(error)
-      }
-    };
-    fetchJudete().then((value)=>{setJudete(value)});
-
-  },
-  [])
-
-
-  const [allLocalitati] = useState(Object.values(localitatiJson).flat().filter((value, index, self) =>
-  index === self.findIndex((t) => (t.label === value.label))));
-  const [currentJudet, setCurrentJudet] = useState('');
+  const [currentJudet, setCurrentJudet] = useState('Alba');
   const [localitati, setLocalitati] = useState([]);
-  
+  const localitatiJson = [];
+  const getJudete = async () => {
+    try {
+      const url = `http://localhost:3001/judete`
+      const { data } = await axios.get(url);
+      setJudete(data);
+    } catch (error) {
+      // console.error(error)
+      console.error('error in useLocationAutocomplete line 13')
+    }
+  };
+
+  const getLocalitati = async () =>{
+    try {
+      const url = `http://localhost:3001/localitati`
+      const { data } = await axios.get(url, {params: {judet: currentJudet, size: 100}});
+      setLocalitati(data);
+    } catch (error) {
+      console.log(error)
+      console.error('error in useLocationAutocomplete line 24')
+    }
+  }
+  useEffect(()=>{ getJudete();getLocalitati()}, [])
+
   useEffect(()=>{
-    const localitatiKey = Object.keys(localitatiJson).filter(el => el.includes(currentJudet.toUpperCase()))[0];
-    if(localitatiKey == undefined)
-      setLocalitati(allLocalitati);
-    else setLocalitati( localitatiJson[localitatiKey]);
+    getLocalitati(currentJudet);
   },[currentJudet])
 
     return ( {
-      judete, localitati,setCurrentJudet
+      judete, localitati, setCurrentJudet
     } );
 }
 
