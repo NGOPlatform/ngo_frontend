@@ -4,7 +4,7 @@ import { Grid, Box } from '@mui/material';
 const MapComponent = ({handleSaveONG,ONGs, searchCriteria, setSearchCriteria}) => {
     return (
         <>
-            <Box height='100%' sx={{ backgroundColor: 'background.paper', borderRadius:'20px 0 0 20px'}}>
+            <Box height='100%' sx={{ backgroundColor: 'background.paper', borderRadius:'20px 0 0 20px' }}>
                 <SearchArea
                     onSaveONG={handleSaveONG}
                     ONGs={ONGs}

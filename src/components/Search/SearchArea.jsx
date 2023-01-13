@@ -35,7 +35,7 @@ function SearchArea({ collectionCount, ONGs, onSaveONG, searchCriteria, onSetSea
   };
 
   return (
-    <Box px={4} sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%', padding:'20px' }}>
       <SearchInputs searchCriteria={searchCriteria} onSetSearchCriteria={onSetSearchCriteria} />
       <ONGPagination collectionCount={collectionCount} onChangePage={handleChangePage} onChangeRowsPerPage={handleChangeRowsPerPage} page={page}
         rowsPerPage={searchCriteria.numberOfONGs} />
