@@ -1,0 +1,114 @@
+{
+  "global": {
+    "kafkaServer": "localhost:9092",
+    "ceph": {
+      "endpoint": "http://172.30.143.130:8000",
+      "accessKey": "CAGY8MQROLHLG4M6Q0FE",
+      "secretKey": "ghAqbaJZHdrt8IUbM4WRlGlfAi3Mp6Xx9KYSlyB4"
+    },
+    "loggerTopic": "ALS_Log"
+  },
+  "ALS": {
+    "name": "ALS",
+    "kafkaTopics": {
+      "ALS_Log": {
+        "handler": "saveLogAsync",
+        "topicResult": ""
+      }
+    },
+    "groupID": "ALS",
+    "bucketLogs": "logs"
+  },
+  "OCP": {
+    "name": "OCP",
+    "virtualBrowser": {
+      "remoteWebDriverAddress": "http://127.0.0.1:4444/wd/hub",
+      "CDPRemote": "ws://127.0.0.1:4444/devtools/$SESSIONID/page",
+      "BrowserVersion": "107.0",
+      "driverOptions": [
+        "--start-maximized",
+        "--ignore-certificate-errors",
+        "--allow-running-insecure-content"
+      ],
+      "selenoidOptions": {
+        "name": "default_name",
+        "sessionTimeout": "2h",
+        "env": [ "TZ=UTC" ],
+        "labels": { "manual": "true" },
+        "enableVNC": true
+      }
+    },
+    "virtualBrowsersCount": 1,
+    "kafkaTopics": {
+      "OCP_GetOnlineContent": {
+        "handler": "getOnlineContentAsync",
+        "topicResult": "OCP_GetOnlineContent_Res"
+      },
+      "OCP_GetOnlineElement": {
+        "handler": "getOnlineElementAsync",
+        "topicResult": "OCP_GetOnlineElement_Res"
+      }
+    }
+  },
+  "CCR": {
+    "name": "CCR",
+    "kafkaTopics": {
+      "CCR_AddSheet": {
+        "handler": "addSheetAsync",
+        "topicResult": "CCR_AddSheet_Res"
+      },
+      "CCR_GetAllSheetsID": {
+        "handler": "getAllSheetsIDAsync",
+        "topicResult": "CCR_GetAllSheetsID_Res"
+      },
+      "CCR_FilterSheets": {
+        "handler": "filterSheetsAsync",
+        "topicResult": "CCR_FilterSheets_Res"
+      },
+      "CCR_GetSheet": {
+        "handler": "getSheetAsync",
+        "topicResult": "CCR_GetSheet_Res"
+      },
+      "CCR_UpdateSheet": {
+        "handler": "updateSheetAsync",
+        "topicResult": "CCR_UpdateSheet_Res"
+      },
+      "CCR_DeleteSheet": {
+        "handler": "deleteSheetAsync",
+        "topicResult": "CCR_DeleteSheet_Res"
+      }
+    },
+    "bucketSheets": "sheets"
+  },
+  "KMS": {
+    "name": "KMS",
+    "kafkaTopics": {
+      "KMS_SignHash": {
+        "handler": "signHashAsync",
+        "topicResult": "KMS_SignHash_Res"
+      }
+    }
+  },
+  "DSS": {
+    "name": "DSS",
+    "kafkaTopics": {
+      "DSS_CalculateHash": {
+        "handler": "calculateHashAsync",
+        "topicResult": "DSS_CalculateHash_Res"
+      },
+      "DSS_CheckCertificate": {
+        "handler": "checkCertificateAsync",
+        "topicResult": "DSS_CheckCertificate_Res"
+      }
+    }
+  },
+  "OCC": {
+    "name": "OCC",
+    "bucketDC": "digitalcert"
+  },
+  "Portal": {
+    "name": "Portal"
+  }
+}
+
+ 
