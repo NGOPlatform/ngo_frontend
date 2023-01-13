@@ -71,6 +71,7 @@ export default function TagsInput({ ...props }) {
         inputValue={inputValue}
         onChange={handleChange}
         selectedItem={selectedItem}
+        
       >
         {({ getInputProps }) => {
           const { onBlur, onChange, onFocus, ...inputProps } = getInputProps({
@@ -78,15 +79,16 @@ export default function TagsInput({ ...props }) {
             placeholder
           });
           return (
-            <div>
+            <div style={{marginTop:'8px',marginBottom:'4px'}}>
               <TextField
+                 size="small"
                 InputProps={{
                   startAdornment: selectedItem.map(item => (
                     <Chip
                       key={item}
+                      sx={{margin:'10px 0'}}
                       tabIndex={-1}
                       label={item}
-                      sx={{margin:0.25}}
                       onDelete={handleDelete(item)}
                     />
                   )),
