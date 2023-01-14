@@ -3,13 +3,6 @@ import PropTypes from "prop-types";
 import { Chip, TextField } from "@mui/material";
 import Downshift from "downshift";
 
-
-// const useStyles = makeStyles(theme => ({
-//   chip: {
-//     margin: theme.spacing(0.5, 0.25)
-//   }
-// }));
-
 export default function TagsInput({ ...props }) {
   const { selectedTags, placeholder, tags, ...other } = props;
   const [inputValue, setInputValue] = React.useState("");

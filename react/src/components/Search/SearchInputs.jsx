@@ -26,6 +26,14 @@ const SearchInputs = ({ searchCriteria, onSetSearchCriteria }) => {
         setCurrentJudet(inputtedData.county);
     }, [inputtedData.county])
 
+    useEffect(() => {
+        onSetSearchCriteria({
+            ...searchCriteria,
+            county: inputtedData.county,
+            city: inputtedData.city,
+            needs: inputtedData.needs
+        });
+    }, [inputtedData])
     return (<Box
         component="form"
         noValidate
@@ -45,10 +53,10 @@ const SearchInputs = ({ searchCriteria, onSetSearchCriteria }) => {
                     localitati={localitati} />
             </Grid>
         </Grid>
-            <SearchNevoi  
-                inputtedData={inputtedData}
-                setInputtedData={setInputtedData}
-            />
+        <SearchNevoi
+            inputtedData={inputtedData}
+            setInputtedData={setInputtedData}
+        />
     </Box>);
 }
 
@@ -116,21 +124,19 @@ const SearchLocalitate = ({ localitati, inputtedData, setInputtedData }) => {
 
 const SearchNevoi = ({ inputtedData, setInputtedData }) => {
     function handleSelecetedTags(items) {
-        console.log(items);
-      }
+        if(JSON.stringify(inputtedData.needs) !== JSON.stringify(items))
+            setInputtedData({ ...inputtedData, needs: items })
+    }
     return (
-        // <TextField
-        //     onChange={(e) => { setInputtedData({ ...inputtedData, needs: e.target.value }); }}
-        //     fullWidth value={inputtedData.needs} variant="outlined" size="small" margin="dense" label="Nevoi" /> 
         <TagsInput
-        selectedTags={handleSelecetedTags}
-        fullWidth
-        variant="outlined"
-        id="tags"
-        name="tags"
-        placeholder="add Tags"
-        label="tags"
-      />
+            selectedTags={handleSelecetedTags}
+            fullWidth
+            variant="outlined"
+            id="tags"
+            name="tags"
+            placeholder="add Tags"
+            label="tags"
+        />
     )
 
 }

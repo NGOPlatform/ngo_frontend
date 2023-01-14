@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-  const ONGsFooData = [
+  const ONGsFooData = {
+    "ONGs":
+    [
     {
         "name": "FEDERATIA CARITAS A DIACEZEI TIMISOARA",
         "regNumber": "13/C/1993",
@@ -76,12 +78,22 @@ import axios from 'axios';
         "description":"AJUTORAREA CELOR NEVOIASI CU MEDICAMENTE, ALIMENTE, IMBRACAMINTE SI ALTE BUNURI NECESARE EXISTENTEI."
     }
 ]
+, collectionCount: 9
+}
 
-export function useONGs(searchCriteria) {
+export function useONGs() {
 
   const [data, setData] = useState([]);
+  const [searchCriteria, setSearchCriteria] = useState({
+    numberOfONGs: 3,
+    city: '',
+    county: '',
+    needs: '',
+    start: 0
+});
   const [loading, setLoading] = useState(true);
   useEffect(() => {
+    // console.log(searchCriteria)
     // const fetchData = async () => {
     //   try {
     //     const url = `http://localhost:8081/filter`
@@ -93,13 +105,18 @@ export function useONGs(searchCriteria) {
     //   setLoading(false);
     // };
     // fetchData();
-    setData(ONGsFooData);
+    // console.log({...ONGsFooData})
+    setData({...ONGsFooData});
   }, [searchCriteria]);
 
  
   return {
-    data,
-    loading: false,
+    data: data.ONGs,
+    collectionCount: data.collectionCount,
+    searchCriteria,
+    setSearchCriteria,
+    loading: false
+
   };
 } 
 
