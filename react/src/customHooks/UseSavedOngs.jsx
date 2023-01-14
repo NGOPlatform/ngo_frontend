@@ -4,7 +4,7 @@ const UseSavedOngs = () => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        setData(ONGsFooData);
+        setData(ONGsFooData.ONGs);
     }, []);
     return {
         data,

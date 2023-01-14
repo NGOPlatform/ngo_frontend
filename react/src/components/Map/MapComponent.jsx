@@ -3,11 +3,11 @@ import MapWrapper from '../Map/MapWrapper';
 import { Box } from '@mui/material';
 import {useONGs} from "../../customHooks/ONGs"
 import Loading from '../Shared/Loading';
-const MapComponent = ({}) => {
+const MapComponent = () => {
 
     const {
         data: ONGs,
-        collectionCount: collectionCount,
+        collectionCount,
         loading,
         searchCriteria,
         setSearchCriteria
@@ -26,7 +26,7 @@ const MapComponent = ({}) => {
     return (
         (!loading && ONGs && ONGs.length > 0) ?
         <>
-            <Box height='100%' sx={{ backgroundColor: 'background.paper', borderRadius:'20px 0 0 20px' }}>
+            <Box sx={{ backgroundColor: 'background.paper', borderRadius:'20px 0 0 20px', height:'100%' }}>
                 <SearchArea
                     onSaveONG={handleSaveONG}
                     ONGs={ONGs}
@@ -35,7 +35,7 @@ const MapComponent = ({}) => {
                     collectionCount={collectionCount}
                 />
             </Box>
-            <Box item xs={8}>
+            <Box xs={8}>
                 <MapWrapper markerAddresses={ONGs.map(el => el.address)} city={searchCriteria.city} county={searchCriteria.county} />
             </Box>
 
