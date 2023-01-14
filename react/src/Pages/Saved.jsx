@@ -4,6 +4,7 @@ import UseSavedOngs from '../customHooks/UseSavedOngs';
 import Favorite from '@mui/icons-material/Favorite';
 import { IconButton } from '@mui/material';
 import { Send } from '@mui/icons-material';
+import { useNavigate } from "react-router-dom";
 const Saved = () => {
     const {
         data: savedOngs,
@@ -22,8 +23,10 @@ const Saved = () => {
             
             {savedOngs.map(el =>
                 <SavedOngCard
+                key={el.name + el.description+ el.id + "unique"}
                 title={el.name}
-                desc={el.description} />
+                desc={el.description} 
+                urlViewMore = {`/ong/${el.id}`}/>
                 )}
         </Box>
 
@@ -33,6 +36,9 @@ const Saved = () => {
 }
 
 const SavedOngCard = ({ title, desc, urlViewMore }) => {
+    const navigate = useNavigate();
+
+
     return (<Card sx={{ maxWidth: '345px', height:'225px', display: 'flex', flexDirection: 'column',
      justifyContent: 'space-between' }} variant="outlined" >
         {/* <CardMedia
@@ -52,9 +58,12 @@ const SavedOngCard = ({ title, desc, urlViewMore }) => {
             </Typography>
         </CardContent>
         <CardActions>
-            <Button size="small" variant="contained" disableElevation sx={{backgroundColor:'#6c63ff'}}>Vezi mai mult</Button>
+        
+            <Button size="small" variant="contained" disableElevation sx={{backgroundColor:'#6c63ff'}} 
+            onClick={()=>{navigate(urlViewMore)}}>Vezi mai mult</Button>
             <Button size="small" variant="outlined" sx={{color:"#6c63ff"}} startIcon={<Send  />}>Distribuie</Button>
         </CardActions>
+        
     </Card>);
 }
 

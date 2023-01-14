@@ -11,6 +11,7 @@ import {
   Route,
 } from "react-router-dom";
 import News from './Pages/News';
+import ONGPage from './Pages/ONGPage';
 
 function App() {
   const [userData, setUserData] = useState({});
@@ -45,6 +46,7 @@ function App() {
           <Route path="/cookies" element={<Cookies />} />
           <Route path="/profile" element={<Profile userData={userData} />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/ong/:ongId" element={<ONGPage />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="*" element={<div>page not found</div>} />
         </Routes>
