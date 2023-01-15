@@ -100,12 +100,33 @@ export function useONGs() {
     start: 0
 });
   const [loading, setLoading] = useState(true);
+
+  const getONGs = async () =>{
+    try {
+      const url = `http://localhost:8081/ongAPI/listONG`
+      const params = {
+        size: searchCriteria.numberOfONGs,
+        skip: searchCriteria.start + 1,
+        city: searchCriteria.city,
+        county: searchCriteria.county,
+        description: searchCriteria.description
+      }
+      
+      const { data } = await axios.get(url, { params: params });
+      setData(data);
+      console.log(data);
+    } catch (error) {
+      console.log(error)
+      console.error('error in ONGs line 120')
+    }
+  }
+
   useEffect(() => {
     // console.log(searchCriteria)
     // const fetchData = async () => {
     //   try {
     //     const url = `http://localhost:8081/filter`
-    //     const { data: response } = await axios.get(url, { params: { size: searchCriteria.numberOfONGs, skip: searchCriteria.start, city: searchCriteria.city, county: searchCriteria.county, description: searchCriteria.description } });
+    //     const { data: response } = await axios.get(url, { params:  });
     //     setData(response);
     //   } catch (error) {
     //     console.error(error)
@@ -115,6 +136,7 @@ export function useONGs() {
     // fetchData();
     // console.log({...ONGsFooData})
     setData({...ONGsFooData});
+    // getONGs();
   }, [searchCriteria]);
 
  

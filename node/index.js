@@ -26,12 +26,12 @@ app.get('/judete', (req, res) => {
 app.get('/localitati', (req, res) => {
   const size = req.query.size ?? 3;
   const judet = req.query.judet.trim();
-  console.log(judet, judet=='')
+  // console.log(judet, judet=='')
   if ( judet === '')
     res.send(allLocalitati.slice(0, size));
   else {
     const localitatiKey = Object.keys(localitatiJson).filter(el => el.includes(judet.toUpperCase()))[0];
-    console.log(localitatiKey)
+    // console.log(localitatiKey)
     if (localitatiKey == undefined)
       res.send(allLocalitati.slice(0, size));
     else res.send(localitatiJson[localitatiKey].filter(filterUnique));

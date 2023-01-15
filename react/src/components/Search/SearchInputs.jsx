@@ -83,7 +83,6 @@ const SearchJudet = ({ judete, inputtedData, setInputtedData }) => {
 const SearchLocalitate = ({ localitati, inputtedData, setInputtedData }) => {
     const filterOptions = createFilterOptions({
         matchFrom: 'any',
-        limit: 5
     });
 
     return (<Autocomplete
