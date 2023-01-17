@@ -7,6 +7,7 @@ import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from 'react-router-dom';
+import image0 from "../../wwwroot/assets/undraw_male_avatar_g98d.svg"
 const settings = ['Profil', 'statistici', 'Deconectare'];
 
 function ProfileMenu({ userData, onLoggedIn }) {
@@ -39,8 +40,8 @@ function ProfileMenu({ userData, onLoggedIn }) {
   return (
     <Box sx={{ flexGrow: 0 }}>
       <Tooltip title="Open settings">
-        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-          <Avatar alt={userData.firstName} src="/static/images/avatar/2.jpg" />
+        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, backgroundColor:'#fff' }}>
+          <Avatar alt={userData.firstName} src={image0} />
         </IconButton>
       </Tooltip>
       <Menu

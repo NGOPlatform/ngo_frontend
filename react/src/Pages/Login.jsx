@@ -42,24 +42,10 @@ const Login = ({onLoggedIn}) => {
     }
 
     const handleLogin = async () => {
-        // let users = localStorage.getItem('users');
-        // if (users == null) return;
-        // users = JSON.parse(users);
-        // let currentUser = users[loginData.email];
-        // const secret = new TextEncoder().encode(
-        //     jwtDetails.secret, //32 characters
-        // )
-        // const jwt = currentUser;
-        // const { payload } = await jose.jwtDecrypt(jwt, secret);
-
-        const foundUser = getUser('username','password');
-        // console.log(payload);
-        // if(payload.password === loginData.password){
-        //     delete payload.password;
-            onLoggedIn(foundUser );
-        // }
-        navigate('/');
-
+        const foundUser = await getUser(loginData.email, loginData.password, onLoggedIn);
+        if(foundUser)
+            navigate('/');
+  
     }
 
 

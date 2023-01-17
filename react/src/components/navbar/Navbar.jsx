@@ -21,8 +21,9 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 const pages = [{ label: 'Acasa', path: '/' },
 { label: 'Harta', path: '/map' },
 { label: 'salvarile mele', path: '/saved' },
-{ label: 'news', path: '/news' },
-{ label: 'resources', path: '/resources' }];
+{ label: 'news', path: '/news' }
+// { label: 'resources', path: '/resources' }
+];
 const navBarStyle = {
   height: 'fit-content',
   backgroundColor: Colors.dark

@@ -12,7 +12,10 @@ import { FacebookShareButton,FacebookIcon,TwitterShareButton,TwitterIcon,
   LinkedinIcon,VKShareButton,VKIcon,RedditShareButton,RedditIcon,EmailShareButton,EmailIcon
 
 } from "react-share"
+import { getCurrentUser } from '../customHooks/UserRepository';
 const Saved = () => {
+
+    const user = getCurrentUser();
     const {
         data: savedOngs,
         loading,
@@ -24,7 +27,7 @@ const Saved = () => {
             marginTop: '40px', marginBottom: '40px', paddingTop: '40px', paddingBottom: '40px',
             backgroundColor: '#ffffff87',  borderRadius: '25px'
         }}>
-        <Typography gutterBottom variant='h3' align='center' sx={{color:'#6c63ff'}}>Salvariile tale, {"USER"} </Typography>
+        <Typography gutterBottom variant='h3' align='center' sx={{color:'#6c63ff'}}>Salvariile tale, {user.username} </Typography>
         <Box sx={{display:'grid',gridTemplateColumns: 'repeat(auto-fit, minmax(345px, 1fr))',
             gap: '20px',alignContent: 'flex-start',width: 'fit-content', width:'100%'}}>
             

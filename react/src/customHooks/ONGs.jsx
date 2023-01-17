@@ -111,12 +111,12 @@ export function useONGs() {
         city: searchCriteria.city,
         county: searchCriteria.county,
         description: searchCriteria.description,
-        tag: searchCriteria.needs.join(",")
+        tag: searchCriteria.needs && searchCriteria.needs.length>0 ? searchCriteria.needs.join(",") : ""
       }
       const { data } = await axios.get(url, { params: params });
       setData(data);
       setLoading(false);
-      console.log(data);
+      // console.log(data);
     } catch (error) {
       console.log(error)
       console.error('error in ONGs line 120')
