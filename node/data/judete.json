@@ -12,12 +12,12 @@
       "long": 21.46643109540636
     },
     {
-      "name": "Argeş",
+      "name": "Arges",
       "lat": 44.43418803418803,
       "long": 24.278632478632478
     },
     {
-      "name": "Bacău",
+      "name": "Bacau",
       "lat": 46,
       "lng": 0,
       "long": 26.46078431372549
@@ -29,49 +29,49 @@
       "long": 21.82751091703057
     },
     {
-      "name": "Bistriţa-Năsăud",
+      "name": "Bistrita-Nasaud",
       "lat": 46.75502008032129,
       "lng": 0,
       "long": 23.983935742971887
     },
     {
-      "name": "Botoşani",
+      "name": "Botosani",
       "lat": 47.25142857142857,
       "lng": 0,
       "long": 26.242857142857144
     },
     {
-      "name": "Brăila",
+      "name": "Braila",
       "lat": 44.65277777777778,
       "lng": 0,
       "long": 27.041666666666668
     },
     {
-      "name": "Braşov",
+      "name": "Brasov",
       "lat": 45.13939393939394,
       "lng": 0,
       "long": 24.727272727272727
     },
     {
-      "name": "Bucureşti",
+      "name": "Bucuresti",
       "lat": 44,
       "lng": 0,
       "long": 26
     },
     {
-      "name": "Buzău",
+      "name": "Buzau",
       "lat": 44.89754098360656,
       "lng": 0,
       "long": 26.137295081967213
     },
     {
-      "name": "Călăraşi",
+      "name": "Calarasi",
       "lat": 44,
       "lng": 0,
       "long": 26.296969696969697
     },
     {
-      "name": "Caraş-Severin",
+      "name": "Caras-Severin",
       "lat": 44.666666666666664,
       "lng": 0,
       "long": 21.49514563106796
@@ -83,7 +83,7 @@
       "long": 23.06451612903226
     },
     {
-      "name": "Constanţa",
+      "name": "Constanta",
       "lat": 43.75233644859813,
       "lng": 0,
       "long": 27.77570093457944
@@ -95,7 +95,7 @@
       "long": 25.4609375
     },
     {
-      "name": "Dâmboviţa",
+      "name": "Dâmbovita",
       "lat": 44.29946524064171,
       "lng": 0,
       "long": 25
@@ -107,7 +107,7 @@
       "long": 23.107692307692307
     },
     {
-      "name": "Galaţi",
+      "name": "Galati",
       "lat": 45.28804347826087,
       "lng": 0,
       "long": 27.130434782608695
@@ -137,13 +137,13 @@
       "long": 22.295687885010267
     },
     {
-      "name": "Ialomiţa",
+      "name": "Ialomita",
       "lat": 44,
       "lng": 0,
       "long": 26.532374100719423
     },
     {
-      "name": "Iaşi",
+      "name": "Iasi",
       "lat": 46.815850815850816,
       "lng": 0,
       "long": 26.752913752913752
@@ -155,25 +155,25 @@
       "long": 25.778846153846153
     },
     {
-      "name": "Maramureş",
+      "name": "Maramures",
       "lat": 47.00404858299595,
       "lng": 0,
       "long": 23.161943319838056
     },
     {
-      "name": "Mehedinţi",
+      "name": "Mehedinti",
       "lat": 44.02513966480447,
       "lng": 0,
       "long": 22.29608938547486
     },
     {
-      "name": "Mureş",
+      "name": "Mures",
       "lat": 46,
       "lng": 0,
       "long": 24.036679536679536
     },
     {
-      "name": "Neamţ",
+      "name": "Neamt",
       "lat": 46.43333333333333,
       "lng": 0,
       "long": 26.02777777777778
@@ -191,7 +191,7 @@
       "long": 25.6353711790393
     },
     {
-      "name": "Sălaj",
+      "name": "Salaj",
       "lat": 46.916955017301035,
       "lng": 0,
       "long": 22.67128027681661
@@ -221,7 +221,7 @@
       "long": 24.73728813559322
     },
     {
-      "name": "Timiş",
+      "name": "Timis",
       "lat": 45.05230769230769,
       "lng": 0,
       "long": 21.05846153846154

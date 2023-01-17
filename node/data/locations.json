@@ -5997,7 +5997,7 @@
       "label": "ZIMBRU"
     }
   ],
-  "ARGEȘ": [
+  "ARGES": [
     {
       "name": "ADUNATI",
       "lat": "44.451971",
@@ -9509,7 +9509,7 @@
       "label": "ZUVELCATI"
     }
   ],
-  "BACĂU": [
+  "BACAU": [
     {
       "name": "AGAS",
       "lat": "46.481985",
@@ -15321,7 +15321,7 @@
       "label": "ZECE HOTARE"
     }
   ],
-  "BISTRIȚA-NĂSĂUD": [
+  "BISTRITA-NASAUD": [
     {
       "name": "AGRIES",
       "lat": "47.400205",
@@ -16817,7 +16817,7 @@
       "label": "ZORENI"
     }
   ],
-  "BOTOȘANI": [
+  "BOTOSANI": [
     {
       "name": "ADASENI",
       "lat": "48.069198",
@@ -18919,7 +18919,7 @@
       "label": "ZOITANI"
     }
   ],
-  "BRĂILA": [
+  "BRAILA": [
     {
       "name": "AGAUA",
       "lat": "44.832028",
@@ -19785,7 +19785,7 @@
       "label": "ZAVOAIA"
     }
   ],
-  "BRAȘOV": [
+  "BRASOV": [
     {
       "name": "ACRIS",
       "lat": "45.636729",
@@ -20777,7 +20777,7 @@
       "label": "ZIZIN"
     }
   ],
-  "BUCUREȘTI": [
+  "BUCURESTI": [
     {
       "name": "BUCURESTI",
       "lat": "44.436141",
@@ -20785,7 +20785,7 @@
       "label": "BUCURESTI"
     }
   ],
-  "BUZĂU": [
+  "BUZAU": [
     {
       "name": "ALBESTI",
       "lat": "44.990419",
@@ -23715,7 +23715,7 @@
       "label": "ZORESTI"
     }
   ],
-  "CĂLĂRAȘI": [
+  "CALARASI": [
     {
       "name": "ALEXANDRU I. CUZA",
       "lat": "44.418148",
@@ -24707,7 +24707,7 @@
       "label": "ZIMBRU"
     }
   ],
-  "CARAȘ-SEVERIN": [
+  "CARAS-SEVERIN": [
     {
       "name": "23 AUGUST",
       "lat": "45.523393",
@@ -29169,7 +29169,7 @@
       "label": "ZORENII DE VALE"
     }
   ],
-  "CONSTANȚA": [
+  "CONSTANTA": [
     {
       "name": "2 MAI",
       "lat": "43.786635",
@@ -31225,7 +31225,7 @@
       "label": "ZOLTAN"
     }
   ],
-  "DÂMBOVIȚA": [
+  "DAMBOVITA": [
     {
       "name": "ADANCA",
       "lat": "44.922424",
@@ -35813,7 +35813,7 @@
       "label": "ZVORSCA"
     }
   ],
-  "GALAȚI": [
+  "GALATI": [
     {
       "name": "ADAM",
       "lat": "46.028684",
@@ -45063,7 +45063,7 @@
       "label": "ZEICANI"
     }
   ],
-  "IALOMIȚA": [
+  "IALOMITA": [
     {
       "name": "ADANCATA",
       "lat": "44.769006",
@@ -45899,7 +45899,7 @@
       "label": "VLASCA"
     }
   ],
-  "IAȘI": [
+  "IASI": [
     {
       "name": "ALBESTI",
       "lat": "47.185166",
@@ -49101,7 +49101,7 @@
       "label": "ZURBAUA"
     }
   ],
-  "MARAMUREȘ": [
+  "MARAMURES": [
     {
       "name": "ARDUSAT",
       "lat": "47.649873",
@@ -50585,7 +50585,7 @@
       "label": "VISEU DE SUS"
     }
   ],
-  "MEHEDINȚI": [
+  "MEHEDINTI": [
     {
       "name": "23 AUGUST",
       "lat": "44.716151",
@@ -52735,7 +52735,7 @@
       "label": "ZEGUJANI"
     }
   ],
-  "MUREȘ": [
+  "MURES": [
     {
       "name": "ABUD",
       "lat": "46.525105",
@@ -55845,7 +55845,7 @@
       "label": "ZIMTI"
     }
   ],
-  "NEAMȚ": [
+  "NEAMT": [
     {
       "name": "ADJUDENI",
       "lat": "47.014085",
@@ -63093,7 +63093,7 @@
       "label": "ZMEURET"
     }
   ],
-  "SĂLAJ": [
+  "SALAJ": [
     {
       "name": "ADALIN",
       "lat": "47.013027",
@@ -71257,7 +71257,7 @@
       "label": "ZLATA"
     }
   ],
-  "TIMIȘ": [
+  "TIMIS": [
     {
       "name": "ALBINA",
       "lat": "45.714799",
@@ -74057,7 +74057,7 @@
       "label": "ZEBIL"
     }
   ],
-  "VÂLCEA": [
+  "VALCEA": [
     {
       "name": "AFANATA",
       "lat": "44.70465",

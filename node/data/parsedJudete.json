@@ -12,16 +12,16 @@
     "label": "Arad"
   },
   {
-    "name": "Argeş",
+    "name": "Arges",
     "lat": 44.43418803418803,
     "long": 24.278632478632478,
-    "label": "Argeş"
+    "label": "Arges"
   },
   {
-    "name": "Bacău",
+    "name": "Bacau",
     "lat": 46,
     "long": 26.46078431372549,
-    "label": "Bacău"
+    "label": "Bacau"
   },
   {
     "name": "Bihor",
@@ -30,52 +30,52 @@
     "label": "Bihor"
   },
   {
-    "name": "Bistriţa-Năsăud",
+    "name": "Bistrita-Nasaud",
     "lat": 46.75502008032129,
     "long": 23.983935742971887,
-    "label": "Bistriţa-Năsăud"
+    "label": "Bistrita-Nasaud"
   },
   {
-    "name": "Botoşani",
+    "name": "Botosani",
     "lat": 47.25142857142857,
     "long": 26.242857142857144,
-    "label": "Botoşani"
+    "label": "Botosani"
   },
   {
-    "name": "Brăila",
+    "name": "Braila",
     "lat": 44.65277777777778,
     "long": 27.041666666666668,
-    "label": "Brăila"
+    "label": "Braila"
   },
   {
-    "name": "Braşov",
+    "name": "Brasov",
     "lat": 45.13939393939394,
     "long": 24.727272727272727,
-    "label": "Braşov"
+    "label": "Brasov"
   },
   {
-    "name": "Bucureşti",
+    "name": "Bucuresti",
     "lat": 44,
     "long": 26,
-    "label": "Bucureşti"
+    "label": "Bucuresti"
   },
   {
-    "name": "Buzău",
+    "name": "Buzau",
     "lat": 44.89754098360656,
     "long": 26.137295081967213,
-    "label": "Buzău"
+    "label": "Buzau"
   },
   {
-    "name": "Călăraşi",
+    "name": "Calarasi",
     "lat": 44,
     "long": 26.296969696969697,
-    "label": "Călăraşi"
+    "label": "Calarasi"
   },
   {
-    "name": "Caraş-Severin",
+    "name": "Caras-Severin",
     "lat": 44.666666666666664,
     "long": 21.49514563106796,
-    "label": "Caraş-Severin"
+    "label": "Caras-Severin"
   },
   {
     "name": "Cluj",
@@ -84,10 +84,10 @@
     "label": "Cluj"
   },
   {
-    "name": "Constanţa",
+    "name": "Constanta",
     "lat": 43.75233644859813,
     "long": 27.77570093457944,
-    "label": "Constanţa"
+    "label": "Constanta"
   },
   {
     "name": "Covasna",
@@ -96,10 +96,10 @@
     "label": "Covasna"
   },
   {
-    "name": "Dâmboviţa",
+    "name": "Dambovita",
     "lat": 44.29946524064171,
     "long": 25,
-    "label": "Dâmboviţa"
+    "label": "Dambovita"
   },
   {
     "name": "Dolj",
@@ -108,10 +108,10 @@
     "label": "Dolj"
   },
   {
-    "name": "Galaţi",
+    "name": "Galati",
     "lat": 45.28804347826087,
     "long": 27.130434782608695,
-    "label": "Galaţi"
+    "label": "Galati"
   },
   {
     "name": "Giurgiu",
@@ -138,16 +138,16 @@
     "label": "Hunedoara"
   },
   {
-    "name": "Ialomiţa",
+    "name": "Ialomita",
     "lat": 44,
     "long": 26.532374100719423,
-    "label": "Ialomiţa"
+    "label": "Ialomita"
   },
   {
-    "name": "Iaşi",
+    "name": "Iasi",
     "lat": 46.815850815850816,
     "long": 26.752913752913752,
-    "label": "Iaşi"
+    "label": "Iasi"
   },
   {
     "name": "Ilfov",
@@ -156,28 +156,28 @@
     "label": "Ilfov"
   },
   {
-    "name": "Maramureş",
+    "name": "Maramures",
     "lat": 47.00404858299595,
     "long": 23.161943319838056,
-    "label": "Maramureş"
+    "label": "Maramures"
   },
   {
-    "name": "Mehedinţi",
+    "name": "Mehedinti",
     "lat": 44.02513966480447,
     "long": 22.29608938547486,
-    "label": "Mehedinţi"
+    "label": "Mehedinti"
   },
   {
-    "name": "Mureş",
+    "name": "Mures",
     "lat": 46,
     "long": 24.036679536679536,
-    "label": "Mureş"
+    "label": "Mures"
   },
   {
-    "name": "Neamţ",
+    "name": "Neamt",
     "lat": 46.43333333333333,
     "long": 26.02777777777778,
-    "label": "Neamţ"
+    "label": "Neamt"
   },
   {
     "name": "Olt",
@@ -192,10 +192,10 @@
     "label": "Prahova"
   },
   {
-    "name": "Sălaj",
+    "name": "Salaj",
     "lat": 46.916955017301035,
     "long": 22.67128027681661,
-    "label": "Sălaj"
+    "label": "Salaj"
   },
   {
     "name": "Satu Mare",
@@ -222,10 +222,10 @@
     "label": "Teleorman"
   },
   {
-    "name": "Timiş",
+    "name": "Timis",
     "lat": 45.05230769230769,
     "long": 21.05846153846154,
-    "label": "Timiş"
+    "label": "Timis"
   },
   {
     "name": "Tulcea",
@@ -234,10 +234,10 @@
     "label": "Tulcea"
   },
   {
-    "name": "Vâlcea",
+    "name": "Valcea",
     "lat": 44.443349753694584,
     "long": 23.753694581280786,
-    "label": "Vâlcea"
+    "label": "Valcea"
   },
   {
     "name": "Vaslui",
