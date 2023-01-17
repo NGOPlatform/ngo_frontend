@@ -23,7 +23,7 @@ const MapComponent = () => {
         // newONGs[index].isSaved = !newONGs[index].isSaved;
         // setONGs(newONGs);
         // console.log(element.id)
-        setFavorites(toggleSaveONG(element.id));
+        setFavorites(toggleSaveONG(element));
         // console.log('saving is commented out right now')
     }
 

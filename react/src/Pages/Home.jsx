@@ -76,8 +76,10 @@ const WhatIs = () => {
                 <WhatIsCard image={image3}
                     title={"Aboneaza-te pentru aparitia unui nou ONG"}
                     description={"Daca nu gasesti un ONG cu criteriile dorite, poti sa te abonezi pentru notificarea aparitiei" +
-                        " unui ONG ce satisface criteriile. "}
-                    redirectBtn={<Link to="/subs" style={PrimarybtnStyle}>Vezi abonariile tale</Link>} />
+                        " unui ONG ce satisface criteriile. O data ce se va gasi ceva potrivit alegerilor tale vei fi notificat prin email-ul"+
+                        " dispus pe platforma"}
+                    // redirectBtn={<Link to="/subs" style={PrimarybtnStyle}>Vezi abonariile tale</Link>}
+                     />
                 <WhatIsCard
                     image={image4}
                     title={"Fi notificat asupra abonarilor tale"}

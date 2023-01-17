@@ -42,13 +42,14 @@ export  function getCurrentUser() {
 
 }
 
-export function toggleSaveONG(idONG){
+export function toggleSaveONG(ONG){
     const userData = getCurrentUser();
     // console.log(userData.favorites.includes(idONG), userData.favorites.indexOf(idONG))
-    const index = userData.favorites.indexOf(idONG);
-    if(index !=-1 )
-      userData.favorites = userData.favorites.filter(el => el != idONG);
-    else userData.favorites.push(idONG);
+    const index = userData.favorites.findIndex( el => el.id == ONG.id);
+    console.log(index, ONG.id,userData.favorites)
+    if(index !=-1)
+      userData.favorites = userData.favorites.filter(el => el.id != ONG.id);
+    else userData.favorites.push(ONG);
     localStorage.setItem('userData', JSON.stringify(userData));
     return userData.favorites;
 }

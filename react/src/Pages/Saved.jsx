@@ -13,14 +13,23 @@ import { FacebookShareButton,FacebookIcon,TwitterShareButton,TwitterIcon,
 
 } from "react-share"
 import { getCurrentUser } from '../customHooks/UserRepository';
+import { toggleSaveONG } from '../customHooks/UserRepository';
 const Saved = () => {
 
     const user = getCurrentUser();
     const {
         data: savedOngs,
+        setData : setSavedOngs,
         loading,
     } = UseSavedOngs();
     // console.log(savedOngs);
+
+    const onUnFavorite = (ongId) =>{
+      const index = savedOngs.findIndex(el => el.id == ongId);
+      toggleSaveONG(savedOngs[index]);      
+      const newSavedOngs = [...savedOngs].filter(el => el.id != ongId)
+      setSavedOngs(newSavedOngs);
+    }
     return (
         <>
         <Container maxWidth="lg" sx={{
@@ -34,8 +43,10 @@ const Saved = () => {
             {savedOngs.map(el =>
                 <SavedOngCard
                 key={el.name + el.description+ el.id + "unique"}
+                id={el.id}
                 title={el.name}
                 desc={el.description} 
+                onUnFavorite={onUnFavorite}
                 urlViewMore = {`/ong/${el.id}`}/>
                 )}
         </Box>
@@ -45,7 +56,7 @@ const Saved = () => {
     );
 }
 
-const SavedOngCard = ({ title, desc, urlViewMore }) => {
+const SavedOngCard = ({ id, title, desc, urlViewMore,onUnFavorite }) => {
     const navigate = useNavigate();
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
@@ -62,7 +73,7 @@ const SavedOngCard = ({ title, desc, urlViewMore }) => {
         <CardContent >
             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <h5 style={{ marginBottom: 0, marginTop: 0 }}>{title}</h5>
-                <IconButton sx={{ padding: 'auto 0' }} >
+                <IconButton sx={{ padding: 'auto 0' }} onClick={()=>{onUnFavorite(id);}}>
                     <Favorite sx={{ color: '#fc5185' }} />
                 </IconButton>
             </Box >
