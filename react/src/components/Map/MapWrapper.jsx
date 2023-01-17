@@ -53,7 +53,7 @@ const MapWrapper = ({ markerAddresses, city, county }) => {
         Promise.all(markerAddresses.map( (el)=>  getCoordinates(el) )).then((values)=>{
           setMarkers(values);
         // console.log(values);
-        })
+        })  
       };
       getMarkers();
     }, [markerAddresses])

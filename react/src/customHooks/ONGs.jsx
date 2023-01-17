@@ -95,7 +95,7 @@ export function useONGs() {
   const [searchCriteria, setSearchCriteria] = useState({
     numberOfONGs: 3,
     city: '',
-    county: '',
+    county: 'Alba',
     needs: '',
     start: 0
 });
@@ -103,17 +103,19 @@ export function useONGs() {
 
   const getONGs = async () =>{
     try {
+      console.log(searchCriteria.needs)
       const url = `http://localhost:8081/ongAPI/listONG`
       const params = {
-        size: searchCriteria.numberOfONGs,
+        size: 100,
         skip: searchCriteria.start + 1,
         city: searchCriteria.city,
         county: searchCriteria.county,
-        description: searchCriteria.description
+        description: searchCriteria.description,
+        tag: searchCriteria.needs.join(",")
       }
-      
       const { data } = await axios.get(url, { params: params });
       setData(data);
+      setLoading(false);
       console.log(data);
     } catch (error) {
       console.log(error)
@@ -135,17 +137,18 @@ export function useONGs() {
     // };
     // fetchData();
     // console.log({...ONGsFooData})
-    setData({...ONGsFooData});
-    // getONGs();
-  }, [searchCriteria]);
+    // setData({...ONGsFooData});
+    getONGs();
+  }, [searchCriteria.city, searchCriteria.county, searchCriteria.needs]);
+
 
  
   return {
-    data: data.ONGs,
-    collectionCount: data.collectionCount,
+    data: data,
+    collectionCount: 100,
     searchCriteria,
     setSearchCriteria,
-    loading: false
+    loading: loading
 
   };
 } 

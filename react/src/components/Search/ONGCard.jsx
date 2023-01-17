@@ -31,7 +31,7 @@ export const ONGCard = ({ ONG , onSaveONG }) => {
                         fontWeight: 400,
                         lineHeight: 1.43,
                         letterSpacing: '0.01071em'
-                    }}>{ONG.address.toLowerCase()}</span>
+                    }}>{ONG.address}</span>
                 </Box>
                 <Typography color={'textSecondary'} variant={'body2'}
                     sx={{

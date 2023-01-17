@@ -22,9 +22,8 @@ const MapComponent = () => {
         console.log('saving is commented out right now')
     }
 
-
     return (
-        (!loading && ONGs && ONGs.length > 0) ?
+        (!loading ) ?
         <>
             <Box sx={{ backgroundColor: 'background.paper', borderRadius:'20px 0 0 20px', height:'100%' }}>
                 <SearchArea
@@ -36,7 +35,10 @@ const MapComponent = () => {
                 />
             </Box>
             <Box xs={8}>
-                <MapWrapper markerAddresses={ONGs.map(el => el.address)} city={searchCriteria.city} county={searchCriteria.county} />
+                <MapWrapper 
+                markerAddresses={ONGs.slice(searchCriteria.start, searchCriteria.start + searchCriteria.numberOfONGs).map(el => el.address)}
+                 city={searchCriteria.city}
+                county={searchCriteria.county} />
             </Box>
 
         </>
