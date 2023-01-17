@@ -16,19 +16,19 @@ export function UseGetOng() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     // console.log(searchCriteria)
-    // const fetchData = async () => {
-    //   try {
-    //     const url = `http://localhost:8081/filter`
-    //     const { data: response } = await axios.get(url, { params: { size: searchCriteria.numberOfONGs, skip: searchCriteria.start, city: searchCriteria.city, county: searchCriteria.county, description: searchCriteria.description } });
-    //     setData(response);
-    //   } catch (error) {
-    //     console.error(error)
-    //   }
-    //   setLoading(false);
-    // };
-    // fetchData();
+    const fetchData = async () => {
+      try {
+        const url = `http://localhost:8081/ongAPI/getONG`
+        const { data: response } = await axios.get(url, { params: { id:currentId} });
+        setData(response);
+      } catch (error) {
+        console.error(error)
+      }
+      setLoading(false);
+    };
+    fetchData();
     // console.log({...ONGsFooData})
-    setData({...ONGFooData});
+    // setData({...ONGFooData});
   }, [currentId]);
 
  

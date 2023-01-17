@@ -20,18 +20,18 @@ export async function getUser(username, password, onLoggedIn) {
             }
             const { data } = await axios.get(url, { params: params });
             // console.log(123);
-            const foundUser = JSON.parse(data.replace(/\s+/g, '').replace(",}]","}]"))[0];
+            const foundUser = data[0];
             if(foundUser){
-              if(foundUser.favorites == "notempty")
+              if(foundUser.favorites == null || foundUser.favorites == "null")
                 foundUser.favorites = [];
-              if(foundUser.subscriptions == "notempty")
+              if(foundUser.subscriptions == null || foundUser.subscriptions == "null")
                 foundUser.subscriptions = [];
               onLoggedIn(foundUser);
             }
             // console.log(foundUser);
             return foundUser;
           } catch (error) {
-            // console.log(error)
+            console.log(error)
             console.error('error in userrepository line 29')
           }
             return null;
@@ -59,3 +59,8 @@ export function getUserSaves(){
   return userData ?  JSON.parse(userData).favorites : [];
 }
 
+
+export async function registerUser(username,email,password){
+  const {data} = await axios.put(`http://localhost:8081/ongAPI/addUser?username=${username}&password=${password}&email=${email}`);
+  return data;
+}

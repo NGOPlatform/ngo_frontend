@@ -21,14 +21,15 @@ const Profile = ({userData}) => {
                 <Typography>email:</Typography>
                 <Typography>{userData.email}</Typography>
                 <Typography>Favorite adaugate recent:</Typography>
-                <Typography>
                     <List >
-                    {userData.favorites.slice(-3).map(el => el.name).map(el=>{
+                    {userData && userData.favorites ? userData.favorites.slice(-3).map(el => el.name).map(el=>{
                         return (
                             <li>{el}</li>
                             )
                 })
-                } </List></Typography>
+                :
+                ""    
+            } </List>
             </div>
             <Button
                 variant='outlined'

@@ -3,10 +3,9 @@ import TextField from '@mui/material/TextField';
 import { Button, Typography, Container } from '@mui/material';
 import { useState } from 'react';
 import { useTranslation } from "react-i18next";
-import { jwtDetails } from '../Globals';
-import * as jose from 'jose';
 import { validatePassword, validateEmail, valuesAreEqual, isValidRegisterData, isStringNullOrEmpty } from '../services/Validators'
 import { useNavigate } from 'react-router-dom';
+import { registerUser } from '../customHooks/UserRepository';
 const registerWrapperStyle = {
     display: 'flex',
     justifyContent: 'center', 
@@ -16,8 +15,7 @@ const registerWrapperStyle = {
 }
 const registerBoxStyle = {
     borderRadius: '12px',
-    display: 'grid',
-    gridTemplateColumns: '1fr 1fr',
+    display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     boxSizing: 'border-box',
@@ -29,10 +27,8 @@ const Register = () => {
     const navigate = useNavigate();
     //label must be equal to field in registerData
     const [inputs, setInputs] = useState([
-        { label: 'firstName', value: '', type: 'text', error: false, helperText: 'Introduceti numele', errorHelperText: 'Numele nu trebuie sa fie gol' },
-        { label: 'lastName', value: '', type: 'text', error: false, helperText: 'Introduceti prenumele', errorHelperText: 'Prenumele nu trebuie sa fie gol' },
+        { label: 'username', value: '', type: 'text', error: false, helperText: 'Introduceti numele de utilizator', errorHelperText: 'Numele de utilizator nu trebuie sa fie gol' },
         { label: 'email', value: '', type: 'email', error: false, helperText: 'Introduceti email-ul' , errorHelperText: 'Email-ul este invalid'},
-        { label: 'confirmEmail', value: '', type: 'email', error: false, helperText: 'Confirmati email-ul', errorHelperText: 'Email-urile nu coincid' },
         { label: 'password', value: '', type: 'password', error: false, helperText: 'Introduceti parola', errorHelperText: 'Parola nu este corecta' },
         { label: 'confirmPassword', value: '', type: 'password', error: false, helperText: 'Confirmati parola', errorHelperText: 'Parolele nu coincid' },
 
@@ -51,28 +47,14 @@ const Register = () => {
 
     const handleRegister = async () => {
         let registerData = ExtractRegisterData();
-        let userData = {};
         if (!isValidRegisterData(registerData)) return;
-        // console.log('flag2')
-        Object.assign(userData, registerData);
-        // const secret = new TextEncoder().encode(
-        //     jwtDetails.secret, //32 characters
-        // )
-        // const jwt = await new jose.EncryptJWT(userData)
-        //     .setProtectedHeader({ alg: jwtDetails.alg, enc: jwtDetails.enc })
-        //     .setIssuedAt()
-        //     .setExpirationTime(jwtDetails.expirationTime)
-        //     .encrypt(secret);
-        // let users;
-        // if (localStorage.getItem('users') != null)
-        //     users = JSON.parse(localStorage.getItem('users'));
-        // else users = {};
-        
-        // users[userData.email] = jwt;
-        // localStorage.setItem('users', JSON.stringify(users));
-        //TO DO: save user into db
-        navigate('/login');
-    }
+        console.log(registerData)
+        const data = await registerUser(registerData.username, registerData.email,registerData.password);
+        console.log(data)
+        if(data.success)
+            navigate('/login');
+        else console.log('error')
+        }
 
     const ExtractRegisterData = () => {
         let newInputs = [...inputs];
@@ -82,7 +64,7 @@ const Register = () => {
 
     const checkValidity = (l) => {
         let formdata = ExtractRegisterData();
-        let { firstName, lastName, email, confirmEmail, password, confirmPassword } = { ...formdata };
+        let { username, email, password, confirmPassword } = { ...formdata };
         if (l === 'password') {
             if (!validatePassword(password)) {
                 return false;
@@ -96,9 +78,7 @@ const Register = () => {
             return true;
         }
         if (l === 'email') return validateEmail(email);
-        if (l === 'confirmEmail' ) return validateEmail(confirmEmail);
-        if (l === 'firstName') return !isStringNullOrEmpty(firstName);
-        if (l === 'lastName') return !isStringNullOrEmpty(lastName);
+        if (l === 'username') return !isStringNullOrEmpty(username);
     }
 
     return (

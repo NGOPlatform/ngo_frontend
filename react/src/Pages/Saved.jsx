@@ -40,7 +40,7 @@ const Saved = () => {
         <Box sx={{display:'grid',gridTemplateColumns: 'repeat(auto-fit, minmax(345px, 1fr))',
             gap: '20px',alignContent: 'flex-start',width: 'fit-content', width:'100%'}}>
             
-            {savedOngs.map(el =>
+            {savedOngs ? savedOngs.map(el =>
                 <SavedOngCard
                 key={el.name + el.description+ el.id + "unique"}
                 id={el.id}
@@ -48,7 +48,9 @@ const Saved = () => {
                 desc={el.description} 
                 onUnFavorite={onUnFavorite}
                 urlViewMore = {`/ong/${el.id}`}/>
-                )}
+                )
+              :
+              ""}
         </Box>
       
         </Container>

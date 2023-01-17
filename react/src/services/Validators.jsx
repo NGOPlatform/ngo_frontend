@@ -2,9 +2,9 @@
 
 var validatePassword = (password) => {
     return Boolean(password.match(
-        /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/
+        /^.{8,}$/
     ))
-}
+}   
 
 var validateEmail = (email) => {
     return Boolean(email.match(
@@ -18,7 +18,6 @@ var valuesAreEqual = (a,b) => {
 
 var isValidRegisterData = (registerData) => {
     if (!valuesAreEqual(registerData.password, registerData.confirmPassword)) return false;
-    if (!valuesAreEqual(registerData.email, registerData.confirmEmail)) return false;
     if (!validateEmail(registerData.email)) return false;
     if (!validatePassword(registerData.password)) return false;
     return true;

@@ -90,7 +90,7 @@ import axios from 'axios';
 }
 
 export function useONGs() {
-
+  const size = 100;
   const [data, setData] = useState([]);
   const [searchCriteria, setSearchCriteria] = useState({
     numberOfONGs: 3,
@@ -99,6 +99,8 @@ export function useONGs() {
     needs: '',
     start: 0
 });
+
+  const [collectionCount, setCollectionCount] = useState(100)
   const [loading, setLoading] = useState(true);
 
   const getONGs = async () =>{
@@ -106,15 +108,23 @@ export function useONGs() {
       // console.log(searchCriteria.needs)
       const url = `http://localhost:8081/ongAPI/listONG`
       const params = {
-        size: 100,
+        size: size,
         skip: searchCriteria.start + 1,
         city: searchCriteria.city,
         county: searchCriteria.county,
-        description: searchCriteria.description,
         tag: searchCriteria.needs && searchCriteria.needs.length>0 ? searchCriteria.needs.join(",") : ""
       }
       const { data } = await axios.get(url, { params: params });
+      const url2 = `http://localhost:8081/ongAPI/listONGSize`
+      const params2 = {
+        city: searchCriteria.city,
+        county: searchCriteria.county,
+        tag: searchCriteria.needs && searchCriteria.needs.length>0 ? searchCriteria.needs.join(",") : ""
+      }
+      const { data:data2 } = await axios.get(url2, { params: params2 });
       setData(data);
+      console.log(data2.size);
+      setCollectionCount(data2.size);
       setLoading(false);
       // console.log(data);
     } catch (error) {
@@ -145,7 +155,7 @@ export function useONGs() {
  
   return {
     data: data,
-    collectionCount: 100,
+    collectionCount: collectionCount,
     searchCriteria,
     setSearchCriteria,
     loading: loading
