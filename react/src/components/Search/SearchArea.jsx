@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import ONGPagination from './ONGPagination';
 import { getStartIndex, getEndIndex } from './paginationMath'
 
-function SearchArea({ collectionCount, ONGs, onSaveONG, searchCriteria, onSetSearchCriteria }) {
+function SearchArea({ collectionCount, ONGs,favorites, onSaveONG, searchCriteria, onSetSearchCriteria }) {
   const [page, setPage] = React.useState(0);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ function SearchArea({ collectionCount, ONGs, onSaveONG, searchCriteria, onSetSea
       <SearchInputs searchCriteria={searchCriteria} onSetSearchCriteria={onSetSearchCriteria} />
       <ONGPagination collectionCount={collectionCount} onChangePage={handleChangePage} onChangeRowsPerPage={handleChangeRowsPerPage} page={page}
         rowsPerPage={searchCriteria.numberOfONGs} />
-      <ONGList onSaveONG={onSaveONG} ONGs={ONGs.slice(getStartIndex(page, searchCriteria.numberOfONGs) -1, getEndIndex(page, searchCriteria.numberOfONGs, collectionCount))} />
+      <ONGList favorites={favorites} onSaveONG={onSaveONG} ONGs={ONGs.slice(getStartIndex(page, searchCriteria.numberOfONGs) -1, getEndIndex(page, searchCriteria.numberOfONGs, collectionCount))} />
     </Box>
   );
 }

@@ -13,14 +13,14 @@ function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 }
 
-export const ONGCard = ({ ONG , onSaveONG }) => {
+export const ONGCard = ({ ONG , onSaveONG, favorites }) => {
     return (
         <Card elevation={0} >
             <CardContent>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                     <h4 style={{ marginBottom: 0, marginTop: 0 }}>{ONG.name}</h4>
                     <IconButton sx={{ padding: 'auto 0' }} onClick={() => { onSaveONG(ONG) }}>
-                        <Favorite sx={{ color: ONG.isSaved ? '#fc5185' : '' }} />
+                        <Favorite sx={{ color: favorites.includes(ONG.id) ? '#fc5185' : '' }} />
                     </IconButton>
                 </Box >
                 <Box color={'grey.500'} display={'flex'} alignItems={'center'} mb={1}>

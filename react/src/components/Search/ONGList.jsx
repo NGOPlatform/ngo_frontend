@@ -16,7 +16,7 @@ const ButtonStyle={
         'borderColor':Colors.white,
     }
 }
-export default function ONGList({ONGs, onSaveONG}) {
+export default function ONGList({ONGs, onSaveONG,favorites}) {
     const [isSusbcribed,setIsSubscribed] = useState(false);
     useEffect(()=>{
         setIsSubscribed(false);
@@ -32,7 +32,7 @@ export default function ONGList({ONGs, onSaveONG}) {
             ONGs.map((el, i) => {
                 return (
                     <React.Fragment key={i + "_WrapperONGCard"}>
-                        <ONGCard key={i + "_ONGCard"} ONG={el} onSaveONG={onSaveONG}/>
+                        <ONGCard key={i + "_ONGCard"} favorites={favorites} ONG={el} onSaveONG={onSaveONG}/>
                         { i !== ONGs.length - 1 && <Divider key={i+ "_ONGCardDivider"} variant="inset" component="li" />}
                     </React.Fragment>)
             })

@@ -103,7 +103,7 @@ export function useONGs() {
 
   const getONGs = async () =>{
     try {
-      console.log(searchCriteria.needs)
+      // console.log(searchCriteria.needs)
       const url = `http://localhost:8081/ongAPI/listONG`
       const params = {
         size: 100,

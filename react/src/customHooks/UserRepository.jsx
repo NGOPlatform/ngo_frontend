@@ -21,8 +21,13 @@ export async function getUser(username, password, onLoggedIn) {
             const { data } = await axios.get(url, { params: params });
             // console.log(123);
             const foundUser = JSON.parse(data.replace(/\s+/g, '').replace(",}]","}]"))[0];
-            if(foundUser)
-                onLoggedIn(foundUser);
+            if(foundUser){
+              if(foundUser.favorites == "notempty")
+                foundUser.favorites = [];
+              if(foundUser.subscriptions == "notempty")
+                foundUser.subscriptions = [];
+              onLoggedIn(foundUser);
+            }
             // console.log(foundUser);
             return foundUser;
           } catch (error) {
@@ -35,5 +40,21 @@ export async function getUser(username, password, onLoggedIn) {
 export  function getCurrentUser() {
     return JSON.parse(localStorage.getItem('userData'));
 
+}
+
+export function toggleSaveONG(idONG){
+    const userData = getCurrentUser();
+    // console.log(userData.favorites.includes(idONG), userData.favorites.indexOf(idONG))
+    const index = userData.favorites.indexOf(idONG);
+    if(index !=-1 )
+      userData.favorites = userData.favorites.filter(el => el != idONG);
+    else userData.favorites.push(idONG);
+    localStorage.setItem('userData', JSON.stringify(userData));
+    return userData.favorites;
+}
+
+export function getUserSaves(){
+  const userData = localStorage.getItem('userData');
+  return userData ?  JSON.parse(userData).favorites : [];
 }
 
