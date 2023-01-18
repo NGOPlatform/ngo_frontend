@@ -29,6 +29,7 @@ const MapComponent = () => {
 
     useEffect(()=>{
             const favorites = getUserSaves();
+            // console.log(favorites);
             setFavorites(favorites ? favorites : []);
     },[])
 

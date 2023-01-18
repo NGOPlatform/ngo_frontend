@@ -123,7 +123,7 @@ export function useONGs() {
       }
       const { data:data2 } = await axios.get(url2, { params: params2 });
       setData(data);
-      console.log(data2.size);
+      // console.log(data2.size);
       setCollectionCount(data2.size);
       setLoading(false);
       // console.log(data);

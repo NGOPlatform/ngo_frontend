@@ -20,7 +20,7 @@ export const ONGCard = ({ ONG , onSaveONG, favorites }) => {
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                     <h4 style={{ marginBottom: 0, marginTop: 0 }}>{ONG.name}</h4>
                     <IconButton sx={{ padding: 'auto 0' }} onClick={() => { onSaveONG(ONG) }}>
-                        <Favorite sx={{ color: (favorites && favorites.map(el=> el.id).includes(ONG.id)) ? '#fc5185' : '' }} />
+                        <Favorite sx={{ color: (favorites && favorites.length>0 && favorites.map(el=> el.id).includes(ONG.id)) ? '#fc5185' : '' }} />
                     </IconButton>
                 </Box >
                 <Box color={'grey.500'} display={'flex'} alignItems={'center'} mb={1}>
