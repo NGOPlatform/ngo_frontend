@@ -55,7 +55,7 @@ export  function getCurrentUser() {
 
 }
 
-export async function toggleSaveONG(ONG){
+export function toggleSaveONG(ONG){
     const userData = getCurrentUser();
     // console.log(userData.favorites.includes(idONG), userData.favorites.indexOf(idONG))
     const index = userData.favorites.findIndex( el => el.id == ONG.id);
