@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { APIUrls } from '../Globals';
 import axios from 'axios';
 
 
@@ -13,7 +14,7 @@ export async function getUser(username, password, onLoggedIn) {
         // }
           try {
             
-            const url = `http://localhost:8081/ongAPI/getUser`
+            const url =  APIUrls.getUser;
             const params = {
                 username: username,
                 password: password,
@@ -28,7 +29,7 @@ export async function getUser(username, password, onLoggedIn) {
                 const completedFavorites = [];
                 for(let fav of foundUser.favorites.split(",")){
                   console.log(fav);
-                  const url = `http://localhost:8081/ongAPI/getONG`
+                  const url = APIUrls.getONG;
                   const { data: data } = await axios.get(url, { params: { id:fav} });
                   completedFavorites.push(data);
                }
@@ -65,7 +66,7 @@ export function toggleSaveONG(ONG){
     else userData.favorites.push(ONG);
     localStorage.setItem('userData', JSON.stringify(userData));
     
-    const url = `http://localhost:8081/ongAPI/updateUserFav?favorites=${userData.favorites.map(el=>el.id).join(',')}&username=${userData.username}&password=${userData.password}`
+    const url = APIUrls.updateUserFav +`?favorites=${userData.favorites.map(el=>el.id).join(',')}&username=${userData.username}&password=${userData.password}`
     axios.put(url);
 
     return userData.favorites;
@@ -78,6 +79,6 @@ export function getUserSaves(){
 
 
 export async function registerUser(username,email,password){
-  const {data} = await axios.put(`http://localhost:8081/ongAPI/addUser?username=${username}&password=${password}&email=${email}`);
+  const {data} = await axios.put( APIUrls.addUser + `?username=${username}&password=${password}&email=${email}`);
   return data;
 }

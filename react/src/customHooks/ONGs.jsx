@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { APIUrls } from '../Globals';
   const ONGsFooData = {
     "ONGs":
     [
@@ -106,7 +107,7 @@ export function useONGs() {
   const getONGs = async () =>{
     try {
       // console.log(searchCriteria.needs)
-      const url = `http://localhost:8081/ongAPI/listONG`
+      const url =  APIUrls.listONG;
       const params = {
         size: size,
         skip: searchCriteria.start + 1,
@@ -115,7 +116,7 @@ export function useONGs() {
         tag: searchCriteria.needs && searchCriteria.needs.length>0 ? searchCriteria.needs.join(",") : ""
       }
       const { data } = await axios.get(url, { params: params });
-      const url2 = `http://localhost:8081/ongAPI/listONGSize`
+      const url2 = APIUrls.listONGSize;
       const params2 = {
         city: searchCriteria.city,
         county: searchCriteria.county,
@@ -134,20 +135,6 @@ export function useONGs() {
   }
 
   useEffect(() => {
-    // console.log(searchCriteria)
-    // const fetchData = async () => {
-    //   try {
-    //     const url = `http://localhost:8081/filter`
-    //     const { data: response } = await axios.get(url, { params:  });
-    //     setData(response);
-    //   } catch (error) {
-    //     console.error(error)
-    //   }
-    //   setLoading(false);
-    // };
-    // fetchData();
-    // console.log({...ONGsFooData})
-    // setData({...ONGsFooData});
     getONGs();
   }, [searchCriteria.city, searchCriteria.county, searchCriteria.needs]);
 

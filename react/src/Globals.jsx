@@ -26,14 +26,21 @@ var Colors = {
 
 }
 
-     
-// JWT Settings
-var jwtDetails = {
-secret: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-alg: 'dir',
-enc: 'A128CBC-HS256',
-expirationTime: '2h'
-  
-};
+const baseUrl = "http://localhost:8081";
+const LocalIpUrl = "";
+const APIUrls = {
+    "getONG": baseUrl + `/ongAPI/getONG`,
+    "listONG": baseUrl + `/ongAPI/listONG`,
+    "listONGSize": baseUrl + `/ongAPI/listONGSize`,
+    "listONGNOU": baseUrl + `/ongAPI/listONGNOU`,
+    "getUser": baseUrl + `/ongAPI/getUser`,
+    "getONG": baseUrl + `/ongAPI/getONG`,
+    "updateUserFav": baseUrl + `/ongAPI/updateUserFav`,
+    "addUser": baseUrl + `/ongAPI/addUser`,
 
-export { Colors, jwtDetails }
+
+}
+     
+
+
+export { Colors,APIUrls }

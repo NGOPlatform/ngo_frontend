@@ -1,8 +1,9 @@
 import axios from "axios";
+import { APIUrls } from "../Globals";
 export async function getNouOngs(){
     try {
             
-        const url = `http://localhost:8081/ongAPI/listONGNOU`
+        const url =  APIUrls.listONGNOU; 
         const params = {
             size:10
         }

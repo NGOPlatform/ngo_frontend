@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import {APIUrls} from "../Globals"
 import axios from 'axios';
   const ONGFooData = {
         "id":1,
@@ -18,7 +19,8 @@ export function UseGetOng() {
     // console.log(searchCriteria)
     const fetchData = async () => {
       try {
-        const url = `http://localhost:8081/ongAPI/getONG`
+
+        const url = APIUrls.getONG
         const { data: response } = await axios.get(url, { params: { id:currentId} });
         setData(response);
       } catch (error) {
@@ -26,6 +28,7 @@ export function UseGetOng() {
       }
       setLoading(false);
     };
+    console.log(data)
     fetchData();
     // console.log({...ONGsFooData})
     // setData({...ONGFooData});

@@ -91,7 +91,7 @@ const SavedOngCard = ({ id, title, desc, urlViewMore,onUnFavorite }) => {
             onClick={()=>{handleOpen();}}
             startIcon={<Send  />}>Distribuie</Button>
         </CardActions>
-        <ShareModal open={open} ongName={title} handleClose={handleClose} shareUrl={"http://192.168.0.108:3000" + urlViewMore}/>
+        <ShareModal open={open} ongName={title} handleClose={handleClose} shareUrl={process.env.REACT_APP_LOCAL_ADDRESS  + urlViewMore}/>
     </Card>);
 }
 
