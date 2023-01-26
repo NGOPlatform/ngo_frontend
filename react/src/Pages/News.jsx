@@ -3,24 +3,27 @@ import { Box, Container } from '@mui/system';
 import { Card, CardContent, CardMedia, Typography, CardActions, Button } from '@mui/material';
 import { Send } from '@mui/icons-material';
 import { useNavigate } from "react-router-dom";
-import { getNouOngs } from "../customHooks/UseGetNouOngs";
+import { UseGetNouOngs } from "../customHooks/UseGetNouOngs";
+import Loading from "../components/Shared/Loading";
 const News = () => {
-    
+    const [data, error, loading] = UseGetNouOngs();
     const [nouONGs, setNouONGs] = useState([]);
     useEffect(()=>{
-        const fetchNouOngs = async()=>{
-            const data = await getNouOngs();
-            console.log(data)
+        if(data!=null){
             setNouONGs(data);
         }
-        fetchNouOngs();
-    },[]);
+    },[data]);
 
     return (
         <Container maxWidth="lg" sx={{
             marginTop: '40px', marginBottom: '40px', paddingTop:'40px', 
             backgroundColor: '#ffffff87', minHeight: 'calc(100vh - 48px - 120px)', borderRadius: '25px'
         }}>
+        {loading &&  <Loading msg="Se încarcă" />}
+        {error && <h3> Error</h3>}
+        {
+            !loading && !error &&    
+            <>
             <Typography gutterBottom variant='h4' align='center' sx={{ color: '#6c63ff' }}>Aici poti vedea noi aparute pe platforma noastra </Typography>
             <Box sx={{
                 display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(345px, 1fr))',
@@ -38,7 +41,10 @@ const News = () => {
                     :
                     ""}
             </Box>
-        </Container>
+            </> 
+    }
+    </Container>
+
     );
 }
 

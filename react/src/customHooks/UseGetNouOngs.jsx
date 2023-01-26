@@ -1,18 +1,31 @@
 import axios from "axios";
+import { useEffect, useState} from "react";
 import { APIUrls } from "../Globals";
-export async function getNouOngs(){
-    try {
-            
-        const url =  APIUrls.listONGNOU; 
-        const params = {
-            size:10
-        }
-        const { data } = await axios.get(url, { params: params });
-        return data;
-      } catch (error) {
-        console.log(error)
-        console.error('error in userrepository line 29')
-      }
-      return [];
-}
- 
+export function UseGetNouOngs() {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState('');
+  const [loading, setloading] = useState(true);
+
+  const fetchData = () =>{
+    const url = APIUrls.listONGNOU;
+    const params = {
+      size: 10
+    }
+    axios
+      .get(url, { params: params })
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((err) => {
+        setError(err);
+      })
+      .finally(() => {
+        setloading(false);
+      });
+  }
+
+  useEffect(()=>{
+    fetchData();
+  },[])
+  return [data,error,loading]
+} 

@@ -1,4 +1,3 @@
-import { loremIpsum } from 'react-lorem-ipsum';
 import { useState, useEffect } from 'react';
 const MesajGeneric = "A aparut un ong nou";
 export function UseInboxData(subsKeyWords){
@@ -13,17 +12,17 @@ export function UseInboxData(subsKeyWords){
         const fooInboxData = [
             {
             "title": MesajGeneric,
-            "shortDesc": loremIpsum()[0].substr(0,120),
+            "shortDesc": "sdADSAASDASD",
             "ongUrl":""
             },
             {
             "title": MesajGeneric,
-            "shortDesc": loremIpsum()[0].substr(0,120),
+            "shortDesc": "sdADSAASDASD",
             "ongUrl":""
             },
             {
             "title": MesajGeneric,
-            "shortDesc": loremIpsum()[0].substr(0,120),
+            "shortDesc": "sdADSAASDASD",
             "ongUrl":""
             }
         ]

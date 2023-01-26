@@ -115,7 +115,8 @@ export function useONGs() {
         county: searchCriteria.county,
         tag: searchCriteria.needs && searchCriteria.needs.length>0 ? searchCriteria.needs.join(",") : ""
       }
-      const { data } = await axios.get(url, { params: params });
+      const { data,  loading: isLoading } = await axios.get(url, { params: params });
+      setLoading(isLoading);
       const url2 = APIUrls.listONGSize;
       const params2 = {
         city: searchCriteria.city,
