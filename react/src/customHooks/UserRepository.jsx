@@ -4,14 +4,6 @@ import axios from 'axios';
 
 
 export async function getUser(username, password, onLoggedIn) {
-
-        // const foundUser = {
-        //     "username": "gandolh",
-        //     "email": "cristian.gusatu02@e-uvt.ro",
-        //     "isAdmin": true,
-        //     "subscriptions": "timisoara haine copii, arad bere",
-        //     "favorites": "1,2,3"
-        // }
           try {
             
             const url =  APIUrls.getUser;
