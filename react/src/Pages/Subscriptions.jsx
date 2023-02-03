@@ -9,35 +9,44 @@ import { Card, CardContent, CardActions } from '@mui/material';
 import {APIUrls} from "../Globals"
 import axios from 'axios';
 const Subscription = () => {
-    const user = getCurrentUser();
-
+    const [user, setUser] = useState(getCurrentUser());
 
     return (<Container maxWidth="lg" sx={{
         marginTop: '40px', marginBottom: '40px', paddingTop: '40px', paddingBottom: '40px',
         backgroundColor: '#ffffff87', borderRadius: '25px'
     }}>
-       <Subscribe user={user}/>
-       <MySubscriptions user={user}/>
+       <Subscribe user={user} setUser={setUser}/>
+       <MySubscriptions user={user} setUser={setUser}/>
        <MyNotifications user={user}/>
     </Container>);
 }
 
 
-const Subscribe = ({user})=>{
+const Subscribe = ({user,setUser})=>{
     const [subsInput, setSubsInput] = useState('');
     const handleChangeInputData = (e) => {
         setSubsInput(e.target.value)
     }
+
+    const handleOnSubscribe = () =>{
+        if( !user.subscriptions.includes(subsInput +";") )
+        setUser({...user, subscriptions : user.subscriptions + subsInput +";"})
+    }
+
+    useEffect(()=>{
+        localStorage.setItem('userData', JSON.stringify(user));
+    },[user])
     return ( <><Typography gutterBottom variant='h4' align='center' sx={{ color: '#6c63ff' }}>Abonarile tale, {user.username} </Typography>
     <Box sx={{width:'50%', display:'flex', alignItems:"center",gap:'10px'}}>
         <TextField
             sx={{width:'100%'}}
-            margin="normal" label="test"
+            margin="normal" label="cuvinte cheie"
             onChange={(e) => handleChangeInputData(e)}
             type="text"
             value={subsInput} />
-        <Button   variant="outlined"
+        <Button  variant="outlined"
                 sx={{ color: '#6c63ff', borderColor: '#6c63ff', marginTop: 1.2, width:'200px' }}
+                onClick={handleOnSubscribe}
                 > Aboneaza-te</Button>
     </Box>
     <Box sx={{
@@ -50,12 +59,26 @@ const Subscribe = ({user})=>{
 )
 }
 
-const MySubscriptions = ({user}) =>{
+const MySubscriptions = ({user,setUser}) =>{
+    const handleDeleteFromSubs =(eltKey)=>{
+        const subs = user.subscriptions.replace(eltKey +";","")
+        setUser({...user, subscriptions : subs})
+    }
+
     return (
         <>
         <Typography gutterBottom variant='h4' align='left' sx={{ color: '#6c63ff' }}>Uite la ce te-ai abonat: </Typography>
         <ul>
-            {user.subscriptions.length > 0 ? user.subscriptions.slice(0,-1).split(";").map( el => <li>{el}</li>) : "nu exista abonari"}
+            {user.subscriptions.length > 0 ? user.subscriptions.slice(0,-1).split(";").map( el => 
+            <><li style={{display:'flex', gap:'10px'}}>{el}  <div style={{backgroundColor:'red',fontSize:'7px', color:'white',
+             borderRadius:'20px', width:'10px',height:'10px', 
+            display:'flex', justifyContent:'center', alignitems:'center'
+            }}
+            onClick={()=>handleDeleteFromSubs(el)}
+            >x</div></li> </>
+            
+            
+            ) : "nu exista abonari"}
         </ul>
         </>
     )
