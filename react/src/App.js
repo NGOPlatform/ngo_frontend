@@ -12,6 +12,7 @@ import {
 } from "react-router-dom";
 import News from './Pages/News';
 import ONGPage from './Pages/ONGPage';
+import Subscription from './Pages/Subscriptions';
 
 function App() {
   const [userData, setUserData] = useState({});
@@ -38,6 +39,7 @@ function App() {
           <Route path="/login" element={<Login onLoggedIn={handleLoggedIn} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/saved" element={<Saved />} />
+          <Route path="/subs" element={<Subscription />} />
           <Route path="/news" element={<News />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />

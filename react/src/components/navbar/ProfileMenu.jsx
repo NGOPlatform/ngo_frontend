@@ -8,7 +8,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from 'react-router-dom';
 import image0 from "../../wwwroot/assets/undraw_male_avatar_g98d.svg"
-const settings = ['Profil', 'salvarile mele', 'Deconectare'];
+const settings = ['Profil', 'salvarile mele', 'abonarile mele', 'Deconectare'];
 
 function ProfileMenu({ userData, onLoggedIn }) {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -35,6 +35,9 @@ function ProfileMenu({ userData, onLoggedIn }) {
 
   const CloseUserMenu = () => {
     setAnchorElUser(null);
+  }
+  const handleClickMySubscriptions = ()=>{
+    navigate('/subs');
   }
 
   return (
@@ -66,6 +69,9 @@ function ProfileMenu({ userData, onLoggedIn }) {
         </MenuItem>
         <MenuItem onClick={() => handleClickMySaved()}>
           <Typography textAlign="center">salvarile mele</Typography>
+        </MenuItem>
+        <MenuItem onClick={() => handleClickMySubscriptions()}>
+          <Typography textAlign="center">abonarile mele</Typography>
         </MenuItem>
         <MenuItem onClick={() => handleClickDisconect()}>
           <Typography textAlign="center">Deconectare</Typography>
