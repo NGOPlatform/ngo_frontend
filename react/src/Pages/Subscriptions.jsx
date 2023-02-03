@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardActions } from '@mui/material';
 import {APIUrls} from "../Globals"
 import axios from 'axios';
+import Loading from '../components/Shared/Loading';
 const Subscription = () => {
     const [user, setUser] = useState(getCurrentUser());
 
@@ -106,7 +107,10 @@ const MyNotifications = ({user})=>{
 
     return (
         <>
-        <Typography gutterBottom variant='h4' align='left' sx={{ color: '#6c63ff' }}>Uite la ce te-ai abonat: </Typography>
+        {
+          data.length >0 ?  
+            <>
+             <Typography gutterBottom variant='h4' align='left' sx={{ color: '#6c63ff' }}>Uite la ce te-ai abonat: </Typography>
         <Box sx={{display:'grid',gridTemplateColumns: 'repeat(auto-fit, minmax(345px, 1fr))',
             gap: '20px',alignContent: 'flex-start',width: 'fit-content', width:'100%'}}>
 
@@ -115,6 +119,9 @@ const MyNotifications = ({user})=>{
         )
             ) : "nu exista notificari"}
         </Box>
+        </>:<Loading msg="Se încarcă abonarile" /> 
+        }
+       
 
         </>
     )

@@ -31,7 +31,7 @@ const MapComponent = () => {
     }, [])
 
     return (
-        ( ONGs != null ) ?
+        ( ONGs != null && ONGs.length > 0 ) ?
             <>
                 <Box sx={{ display: 'grid', gridTemplateColumns: '3fr 5fr' }}>
 
