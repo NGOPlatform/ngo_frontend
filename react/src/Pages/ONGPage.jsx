@@ -11,8 +11,9 @@ const ONGPage = ({}) => {
 
     const params = useParams();
     useEffect(()=>{
-        setCurrentId(params.ongId);
-    },params)
+        if(params !=null && params.ongId!=null)
+            setCurrentId(params.ongId);
+    },[params])
 
     return ( 
     <>
