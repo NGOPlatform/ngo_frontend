@@ -11,7 +11,7 @@ import image1 from "../wwwroot/assets/flat web ilustration pack/Currect location
 import image2 from "../wwwroot/assets/flat web ilustration pack/Appreciation-60b6.svg"
 import image3 from "../wwwroot/assets/flat web ilustration pack/Notifications-60b6.svg"
 import image4 from "../wwwroot/assets/flat web ilustration pack/Reminders-60b6.svg"
-import foxy from "../wwwroot/assets/cute animals/9029-4728.svg"
+import foxy from "../wwwroot/assets/CopyrightInfringement.png"
 import image5 from '../wwwroot/assets/undraw_spread_love_re_v3cl.svg'
 
 const PrimarybtnStyle = { borderRadius: 30, backgroundColor: '#6c63ff', padding: 10, color: 'white' };
@@ -104,7 +104,7 @@ const WhatIs = () => {
                 </Typography>
                 <hr />
                 <Typography gutterBottom variant="h6" component="div" sx={{ textAlign: 'center' }}>✨Impreuna putem crea o lume mai buna✨</Typography>
-                <img src={foxy} style={{ width: '100%', height: '280px' }} />
+                <img src={foxy} style={{ width: '100%', height: '280px',objectFit: 'contain' }} />
 
             </div>
             <div></div>

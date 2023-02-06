@@ -36,6 +36,8 @@ const Subscribe = ({user,setUser})=>{
 
     useEffect(()=>{
         localStorage.setItem('userData', JSON.stringify(user));
+        const url = APIUrls.updateUserSub +`?subscriptions=${user.favorites.map(el=>el.id).join(',')}&username=${user.username}&password=${user.password}`
+        axios.put(url);
     },[user])
     return ( <><Typography gutterBottom variant='h4' align='center' sx={{ color: '#6c63ff' }}>Abonarile tale, {user.username} </Typography>
     <Box sx={{width:'50%', display:'flex', alignItems:"center",gap:'10px'}}>

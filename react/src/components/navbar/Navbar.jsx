@@ -10,7 +10,7 @@ import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import logo from '../../wwwroot/assets/fox.png'
+import logo from '../../wwwroot/assets/hi.gif'
 import ProfileMenu from './ProfileMenu';
 import AuthenticationGroup from './AuthenticationGroup'
 import { Colors } from '../../Globals'

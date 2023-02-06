@@ -37,7 +37,7 @@ const APIUrls = {
     "getONG": baseUrl + `/ongAPI/getONG`,
     "updateUserFav": baseUrl + `/ongAPI/updateUserFav`,
     "addUser": baseUrl + `/ongAPI/addUser`,
-
+    "updateUserSub": baseUrl + `/ongAPI/updateUserSub`
 
 }
      
